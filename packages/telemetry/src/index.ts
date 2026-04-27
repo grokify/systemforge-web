@@ -3,7 +3,7 @@
  *
  * Telemetry, error tracking, and performance monitoring for CoreForge applications.
  *
- * @example
+ * @example Basic usage
  * ```tsx
  * import {
  *   TelemetryProvider,
@@ -42,6 +42,26 @@
  * }
  * ```
  *
+ * @example ProductGraph integration
+ * ```tsx
+ * import { TelemetryProvider } from '@coreforge/telemetry';
+ * import { ProductGraphAdapter } from '@coreforge/telemetry/adapters/productgraph';
+ *
+ * const productGraph = new ProductGraphAdapter({
+ *   projectId: 'my-project',
+ *   endpoint: 'https://api.productgraph.io/v1/events',
+ *   apiKey: process.env.PRODUCTGRAPH_API_KEY,
+ * });
+ *
+ * function App() {
+ *   return (
+ *     <TelemetryProvider config={{ adapters: [productGraph] }}>
+ *       <MyApp />
+ *     </TelemetryProvider>
+ *   );
+ * }
+ * ```
+ *
  * @packageDocumentation
  */
 
@@ -55,7 +75,18 @@ export { ErrorBoundary, DefaultErrorFallback } from './ErrorBoundary';
 // Telemetry client
 export { TelemetryClient, createTelemetryClient, ConsoleAdapter, HttpAdapter } from './telemetry';
 
-// Hooks
+// Adapters
+export {
+  ProductGraphAdapter,
+  createProductGraphAdapter,
+} from './adapters/productgraph';
+export type {
+  ProductGraphConfig,
+  ProductGraphEvent,
+  ProductGraphEventType,
+} from './adapters/productgraph';
+
+// Core hooks
 export {
   usePageView,
   useComponentTrack,
@@ -67,6 +98,25 @@ export {
   useFeatureTracker,
   useWebVitals,
 } from './hooks';
+
+// ProductGraph-specific hooks
+export {
+  // Component path tracking
+  ComponentPathProvider,
+  useComponentPath,
+  useComponentPathString,
+  // State tracking
+  useStateTracker,
+  // Journey tracking
+  JourneyProvider,
+  useJourneyStep,
+  useJourneyConversion,
+  // Enhanced interaction tracking
+  useScrollTracker,
+  useClickTracker,
+  useAPITracker,
+  usePageLeaveTracker,
+} from './hooks/productgraph';
 
 // Types
 export type {
