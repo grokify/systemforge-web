@@ -62,6 +62,11 @@ nav:
   - Design:
     - PRD: design/prd.md
     - TRD: design/trd.md
+    - ProductGraph:
+      - PRD: design/productgraph/PRD.md
+      - TRD: design/productgraph/TRD.md
+      - Plan: design/productgraph/PLAN.md
+      - Tasks: design/productgraph/TASKS.md
   - Roadmap:
     - Plan: roadmap/plan.md
   - Releases:

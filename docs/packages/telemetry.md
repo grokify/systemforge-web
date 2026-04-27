@@ -142,3 +142,161 @@ interface TelemetrySink {
   pageView?: (path: string, title: string) => void;
 }
 ```
+
+## ProductGraph Integration
+
+ProductGraph provides advanced telemetry with session management, journey tracking, and OTel semantic conventions.
+
+### ProductGraphAdapter
+
+```tsx
+import { TelemetryProvider, ProductGraphAdapter } from '@coreforge/telemetry';
+
+const adapter = new ProductGraphAdapter({
+  projectId: 'my-project',
+  endpoint: 'https://api.productgraph.io/v1/events',
+  apiKey: process.env.NEXT_PUBLIC_PRODUCTGRAPH_API_KEY,
+  batchSize: 20,           // Events per batch (default: 20)
+  batchInterval: 5000,     // Flush interval in ms (default: 5000)
+  sessionTimeout: 30 * 60 * 1000,  // Session timeout (default: 30 min)
+});
+
+function App() {
+  return (
+    <TelemetryProvider config={{ adapters: [adapter] }}>
+      <YourApp />
+    </TelemetryProvider>
+  );
+}
+```
+
+### Configuration Options
+
+| Option | Type | Default | Description |
+|--------|------|---------|-------------|
+| `projectId` | string | required | ProductGraph project ID |
+| `endpoint` | string | required | ProductGraph API endpoint |
+| `apiKey` | string | - | API key for X-PG-API-Key header |
+| `batchSize` | number | 20 | Events per batch |
+| `batchInterval` | number | 5000 | Flush interval (ms) |
+| `sessionTimeout` | number | 1800000 | Session timeout (ms) |
+| `debug` | boolean | false | Enable console logging |
+
+### Journey Tracking
+
+Track multi-step user flows:
+
+```tsx
+import { JourneyProvider, useJourneyStep } from '@coreforge/telemetry';
+
+function App() {
+  return (
+    <JourneyProvider journeyId="checkout_flow">
+      <CheckoutWizard />
+    </JourneyProvider>
+  );
+}
+
+function PaymentStep() {
+  const { enterStep, completeStep, abandonStep } = useJourneyStep(
+    'payment',
+    'Enter Payment Details'
+  );
+
+  useEffect(() => {
+    enterStep();
+    return () => completeStep();
+  }, []);
+
+  return <PaymentForm />;
+}
+```
+
+### State Change Tracking
+
+Track state changes with before/after values:
+
+```tsx
+import { useStateTracker } from '@coreforge/telemetry';
+
+function CartPage() {
+  const [items, setItems] = useState([]);
+
+  // Tracks changes to cart.items with before/after values
+  useStateTracker('cart.items', items, {
+    debounce: 500,  // Debounce rapid changes
+  });
+
+  return <CartList items={items} />;
+}
+```
+
+### Component Path Tracking
+
+Build component hierarchy for debugging:
+
+```tsx
+import { ComponentPathProvider, useComponentPath } from '@coreforge/telemetry';
+
+function App() {
+  return (
+    <ComponentPathProvider name="App">
+      <Dashboard />
+    </ComponentPathProvider>
+  );
+}
+
+function Widget() {
+  const path = useComponentPath();
+  // path = ['App', 'Dashboard', 'Widget']
+
+  return <div>...</div>;
+}
+```
+
+### Interaction Hooks
+
+| Hook | Purpose |
+|------|---------|
+| `useScrollTracker` | Track scroll depth (25%, 50%, 75%, 90%, 100%) |
+| `useClickTracker` | Track clicks with component context |
+| `useAPITracker` | Track API calls with timing |
+| `usePageLeaveTracker` | Track page exit and duration |
+
+```tsx
+import { useScrollTracker, useAPITracker } from '@coreforge/telemetry';
+
+function ArticlePage() {
+  // Track scroll depth at 25%, 50%, 75%, 100%
+  useScrollTracker({ thresholds: [25, 50, 75, 100] });
+
+  return <Article />;
+}
+
+function DataFetcher() {
+  const { trackRequest, trackResponse } = useAPITracker();
+
+  const fetchData = async () => {
+    trackRequest('GET', '/api/data');
+    const response = await fetch('/api/data');
+    trackResponse('GET', '/api/data', response.status, duration);
+  };
+}
+```
+
+### OTel Semantic Conventions
+
+ProductGraph events follow OpenTelemetry semantic conventions:
+
+| Namespace | Fields |
+|-----------|--------|
+| `session.*` | id |
+| `event.*` | type, name, timestamp, sequence |
+| `page.*` | path, title, url, referrer |
+| `ui.*` | component.name, component.path, action, element |
+| `ui.state.*` | key, before, after |
+| `gen_ai.journey.*` | id, step.id, step.name |
+| `api.*` | method, path, status_code, duration_ms |
+| `error.*` | type, message, stack |
+
+See the [ProductGraph Integration TRD](../design/productgraph/TRD.md) for full details.
