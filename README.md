@@ -38,9 +38,44 @@ function App() {
 }
 ```
 
+## Telemetry with ProductGraph
+
+Track user behavior, journeys, and performance with ProductGraph integration:
+
+```typescript
+import { TelemetryProvider, ProductGraphAdapter, usePageView, useJourneyStep } from '@coreforge/telemetry';
+
+const adapter = new ProductGraphAdapter({
+  projectId: 'my-project',
+  endpoint: 'https://api.productgraph.io/v1/events',
+});
+
+function App() {
+  return (
+    <TelemetryProvider config={{ adapters: [adapter] }}>
+      <Router />
+    </TelemetryProvider>
+  );
+}
+
+function CheckoutPage() {
+  usePageView('/checkout');
+  const { enterStep, completeStep } = useJourneyStep('payment', 'Enter Payment');
+
+  useEffect(() => {
+    enterStep();
+    return () => completeStep();
+  }, []);
+
+  return <PaymentForm />;
+}
+```
+
 ## Documentation
 
-Full documentation available at [coreforge-platform](https://github.com/grokify/coreforge-platform).
+- [API Documentation](https://grokify.github.io/coreforge-web/)
+- [ProductGraph Integration](docs/design/productgraph/TRD.md)
+- [Changelog](CHANGELOG.md)
 
 ## Development
 
