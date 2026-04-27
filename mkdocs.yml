@@ -64,3 +64,6 @@ nav:
     - TRD: design/trd.md
   - Roadmap:
     - Plan: roadmap/plan.md
+  - Releases:
+    - Changelog: changelog.md
+    - v0.1.0: releases/v0.1.0.md
