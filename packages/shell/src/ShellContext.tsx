@@ -24,7 +24,7 @@ export interface ShellProviderProps extends Partial<AppShellConfig> {
 /**
  * Storage key for collapsed state
  */
-const COLLAPSED_KEY = 'coreforge:sidebar-collapsed';
+const COLLAPSED_KEY = 'systemforge:sidebar-collapsed';
 
 /**
  * ShellProvider - Provides shell state to components

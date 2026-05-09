@@ -1,5 +1,5 @@
 /**
- * Z-index tokens for CoreForge applications
+ * Z-index tokens for SystemForge applications
  */
 
 /**

@@ -1,5 +1,5 @@
 import { useState, type ReactNode, type FormEvent } from 'react';
-import { useAuth, type OAuthProvider } from '@coreforge/auth';
+import { useAuth, type OAuthProvider } from '@systemforge/auth';
 import type { LoginPageProps } from './types';
 
 /**
@@ -63,7 +63,7 @@ const providerLabels: Record<OAuthProvider, string> = {
  * ```
  */
 export function LoginPage({
-  appName = 'CoreForge',
+  appName = 'SystemForge',
   logo,
   oauthProviders = [],
   showEmailForm = true,

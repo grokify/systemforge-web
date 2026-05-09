@@ -1,12 +1,12 @@
 /**
- * @coreforge/tenant
+ * @systemforge/tenant
  *
- * Multi-tenant context for CoreForge applications.
+ * Multi-tenant context for SystemForge applications.
  *
  * @example
  * ```tsx
- * import { AuthProvider } from '@coreforge/auth';
- * import { TenantProvider, useOrganization, RequireRole } from '@coreforge/tenant';
+ * import { AuthProvider } from '@systemforge/auth';
+ * import { TenantProvider, useOrganization, RequireRole } from '@systemforge/tenant';
  *
  * function App() {
  *   return (

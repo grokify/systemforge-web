@@ -1,7 +1,7 @@
 {
-  "name": "@coreforge/tenant",
+  "name": "@systemforge/tenant",
   "version": "0.1.0",
-  "description": "Multi-tenant context for CoreForge applications",
+  "description": "Multi-tenant context for SystemForge applications",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -25,12 +25,12 @@
     "clean": "rm -rf dist"
   },
   "peerDependencies": {
-    "@coreforge/auth": "^0.1.0",
+    "@systemforge/auth": "^0.1.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "@coreforge/auth": "workspace:*",
+    "@systemforge/auth": "workspace:*",
     "@testing-library/react": "^16.0.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
@@ -43,12 +43,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/grokify/coreforge-web.git",
+    "url": "https://github.com/grokify/systemforge-web.git",
     "directory": "packages/tenant"
   },
   "license": "MIT",
   "keywords": [
-    "coreforge",
+    "systemforge",
     "tenant",
     "multi-tenant",
     "organization",

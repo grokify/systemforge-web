@@ -1,15 +1,15 @@
-# CoreForge Web - Technical Requirements Document
+# SystemForge Web - Technical Requirements Document
 
 ## Overview
 
-This document specifies the technical architecture, interfaces, and implementation details for CoreForge Web, an open-source React framework providing a complete web application shell for multi-tenant SaaS applications.
+This document specifies the technical architecture, interfaces, and implementation details for SystemForge Web, an open-source React framework providing a complete web application shell for multi-tenant SaaS applications.
 
 ## Architecture
 
 ### Package Structure
 
 ```
-coreforge-web/
+systemforge-web/
 ├── packages/
 │   ├── shell/                   # Application shell components
 │   │   ├── src/
@@ -131,7 +131,7 @@ coreforge-web/
 
 ## Package Specifications
 
-### 1. @coreforge/shell
+### 1. @systemforge/shell
 
 #### Dependencies
 
@@ -141,9 +141,9 @@ coreforge-web/
     "react": "^18.0.0 || ^19.0.0",
     "react-dom": "^18.0.0 || ^19.0.0",
     "react-router-dom": "^6.0.0 || ^7.0.0",
-    "@coreforge/auth": "workspace:*",
-    "@coreforge/tenant": "workspace:*",
-    "@coreforge/telemetry": "workspace:*"
+    "@systemforge/auth": "workspace:*",
+    "@systemforge/tenant": "workspace:*",
+    "@systemforge/telemetry": "workspace:*"
   },
   "dependencies": {
     "lucide-react": "^0.400.0"
@@ -253,7 +253,7 @@ import { TopBar } from './TopBar';
 import { LeftNav } from './LeftNav';
 import { MobileMenu } from './MobileMenu';
 import { UserMenu } from './UserMenu';
-import { useInstrumented } from '@coreforge/telemetry';
+import { useInstrumented } from '@systemforge/telemetry';
 import type { AppShellProps } from './types';
 
 export function AppShell({
@@ -335,9 +335,9 @@ export function AppShell({
 // UserMenu.tsx
 
 import { useState } from 'react';
-import { useAuth, useLinkedAccounts } from '@coreforge/auth';
-import { useOrganizations, useCurrentOrg } from '@coreforge/tenant';
-import { useInstrumented } from '@coreforge/telemetry';
+import { useAuth, useLinkedAccounts } from '@systemforge/auth';
+import { useOrganizations, useCurrentOrg } from '@systemforge/tenant';
+import { useInstrumented } from '@systemforge/telemetry';
 import type { UserMenuProps } from './types';
 
 export function UserMenu({
@@ -466,8 +466,8 @@ export function UserMenu({
 // OrgSwitcher.tsx
 
 import { useState } from 'react';
-import { useOrganizations, useCurrentOrg } from '@coreforge/tenant';
-import { useInstrumented } from '@coreforge/telemetry';
+import { useOrganizations, useCurrentOrg } from '@systemforge/tenant';
+import { useInstrumented } from '@systemforge/telemetry';
 import type { OrgSwitcherProps } from './types';
 
 export function OrgSwitcher({ onOrgChange, showCreateOrg = true }: OrgSwitcherProps) {
@@ -538,14 +538,14 @@ export function OrgSwitcher({ onOrgChange, showCreateOrg = true }: OrgSwitcherPr
 }
 ```
 
-### 2. @coreforge/pages
+### 2. @systemforge/pages
 
 ```typescript
 // UserSettingsPage.tsx
 
 import { useState } from 'react';
-import { useAuth, useLinkedAccounts } from '@coreforge/auth';
-import { useInstrumented } from '@coreforge/telemetry';
+import { useAuth, useLinkedAccounts } from '@systemforge/auth';
+import { useInstrumented } from '@systemforge/telemetry';
 
 export function UserSettingsPage() {
   const { user, refreshUser } = useAuth();
@@ -612,9 +612,9 @@ export function UserSettingsPage() {
 // OrgMembersPage.tsx
 
 import { useState } from 'react';
-import { useOrganization, useMembership, useOrgMembers } from '@coreforge/tenant';
-import { RequireRole } from '@coreforge/tenant';
-import { useInstrumented } from '@coreforge/telemetry';
+import { useOrganization, useMembership, useOrgMembers } from '@systemforge/tenant';
+import { RequireRole } from '@systemforge/tenant';
+import { useInstrumented } from '@systemforge/telemetry';
 
 export function OrgMembersPage() {
   const { organization } = useOrganization();
@@ -700,14 +700,14 @@ export function OrgMembersPage() {
 }
 ```
 
-### 3. @coreforge/tenant
+### 3. @systemforge/tenant
 
 ```typescript
 // TenantProvider.tsx
 
 import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from 'react';
-import { useAuth } from '@coreforge/auth';
-import { getEmitter } from '@coreforge/telemetry';
+import { useAuth } from '@systemforge/auth';
+import { getEmitter } from '@systemforge/telemetry';
 import type { Organization, Membership, TenantContextValue } from './types';
 
 const TenantContext = createContext<TenantContextValue | undefined>(undefined);
@@ -723,7 +723,7 @@ export interface TenantProviderProps {
 export function TenantProvider({
   children,
   initialOrgId,
-  storageKey = 'coreforge:current_org',
+  storageKey = 'systemforge:current_org',
 }: TenantProviderProps) {
   const { user, isAuthenticated } = useAuth();
   const [currentOrgId, setCurrentOrgId] = useState<string | null>(() => {
@@ -898,14 +898,14 @@ export function RequireRole({
 }
 ```
 
-### 4. @coreforge/design-tokens (with design-system-spec)
+### 4. @systemforge/design-tokens (with design-system-spec)
 
 ```json
 // dss/meta.json
 {
-  "name": "CoreForge Design System",
+  "name": "SystemForge Design System",
   "version": "1.0.0",
-  "description": "Design tokens for CoreForge Web applications"
+  "description": "Design tokens for SystemForge Web applications"
 }
 ```
 
@@ -1137,13 +1137,13 @@ export default defineConfig({
 
 | Package                  | Gzipped Size | Load Time Impact |
 | ------------------------ | ------------ | ---------------- |
-| @coreforge/shell         | < 15KB       | < 20ms           |
-| @coreforge/pages         | < 10KB       | < 15ms           |
-| @coreforge/auth          | < 5KB        | < 10ms           |
-| @coreforge/tenant        | < 3KB        | < 5ms            |
-| @coreforge/api-client    | < 3KB        | < 5ms            |
-| @coreforge/telemetry     | < 4KB        | < 5ms            |
-| @coreforge/design-tokens | < 2KB        | < 5ms            |
+| @systemforge/shell         | < 15KB       | < 20ms           |
+| @systemforge/pages         | < 10KB       | < 15ms           |
+| @systemforge/auth          | < 5KB        | < 10ms           |
+| @systemforge/tenant        | < 3KB        | < 5ms            |
+| @systemforge/api-client    | < 3KB        | < 5ms            |
+| @systemforge/telemetry     | < 4KB        | < 5ms            |
+| @systemforge/design-tokens | < 2KB        | < 5ms            |
 
 ## Accessibility Requirements
 

@@ -1,5 +1,5 @@
 import { type ReactNode } from 'react';
-import { useAuth } from '@coreforge/auth';
+import { useAuth } from '@systemforge/auth';
 import {
   Avatar,
   AvatarImage,
@@ -13,7 +13,7 @@ import {
   DropdownMenuTrigger,
   UserIcon,
   cn,
-} from '@coreforge/ui';
+} from '@systemforge/ui';
 import type { UserMenuProps, UserAction } from './types';
 
 /**

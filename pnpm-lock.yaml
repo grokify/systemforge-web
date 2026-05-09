@@ -120,7 +120,7 @@ importers:
 
   packages/pages:
     devDependencies:
-      '@coreforge/auth':
+      '@systemforge/auth':
         specifier: workspace:*
         version: link:../auth
       '@types/react':
@@ -138,13 +138,13 @@ importers:
 
   packages/shell:
     devDependencies:
-      '@coreforge/auth':
+      '@systemforge/auth':
         specifier: workspace:*
         version: link:../auth
-      '@coreforge/tenant':
+      '@systemforge/tenant':
         specifier: workspace:*
         version: link:../tenant
-      '@coreforge/ui':
+      '@systemforge/ui':
         specifier: workspace:*
         version: link:../ui
       '@types/react':
@@ -178,7 +178,7 @@ importers:
 
   packages/tenant:
     devDependencies:
-      '@coreforge/auth':
+      '@systemforge/auth':
         specifier: workspace:*
         version: link:../auth
       '@testing-library/react':

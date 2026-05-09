@@ -1,5 +1,5 @@
 /**
- * User representation from the CoreForge backend
+ * User representation from the SystemForge backend
  */
 export interface User {
   id: string;

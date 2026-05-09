@@ -1,11 +1,11 @@
 /**
- * @coreforge/pages
+ * @systemforge/pages
  *
- * Standard page components for CoreForge applications.
+ * Standard page components for SystemForge applications.
  *
  * @example
  * ```tsx
- * import { LoginPage, NotFoundPage, LoadingPage } from '@coreforge/pages';
+ * import { LoginPage, NotFoundPage, LoadingPage } from '@systemforge/pages';
  *
  * // Login page
  * <LoginPage

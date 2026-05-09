@@ -1,6 +1,6 @@
 # Quick Start
 
-This guide walks you through setting up a basic CoreForge Web application.
+This guide walks you through setting up a basic SystemForge Web application.
 
 ## 1. Create a New Project
 
@@ -10,10 +10,10 @@ cd my-app
 pnpm install
 ```
 
-## 2. Install CoreForge Web
+## 2. Install SystemForge Web
 
 ```bash
-pnpm add @coreforge/auth @coreforge/tenant @coreforge/shell @coreforge/api-client
+pnpm add @systemforge/auth @systemforge/tenant @systemforge/shell @systemforge/api-client
 pnpm add @tanstack/react-query react-router-dom
 ```
 
@@ -24,10 +24,10 @@ Create `src/App.tsx`:
 ```tsx
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { BrowserRouter } from 'react-router-dom';
-import { AuthProvider } from '@coreforge/auth';
-import { TenantProvider } from '@coreforge/tenant';
-import { ApiProvider } from '@coreforge/api-client';
-import { AppShell } from '@coreforge/shell';
+import { AuthProvider } from '@systemforge/auth';
+import { TenantProvider } from '@systemforge/tenant';
+import { ApiProvider } from '@systemforge/api-client';
+import { AppShell } from '@systemforge/shell';
 import { Routes } from './Routes';
 
 const queryClient = new QueryClient();
@@ -63,8 +63,8 @@ Create `src/Routes.tsx`:
 
 ```tsx
 import { Routes as RouterRoutes, Route } from 'react-router-dom';
-import { ProtectedRoute } from '@coreforge/auth';
-import { LoginPage } from '@coreforge/pages';
+import { ProtectedRoute } from '@systemforge/auth';
+import { LoginPage } from '@systemforge/pages';
 
 function Dashboard() {
   return <h1>Dashboard</h1>;

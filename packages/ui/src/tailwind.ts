@@ -1,20 +1,20 @@
 /**
- * CoreForge UI Tailwind v4 Integration
+ * SystemForge UI Tailwind v4 Integration
  *
  * With Tailwind CSS v4, configuration is done via CSS instead of JavaScript.
- * To use CoreForge UI in your application:
+ * To use SystemForge UI in your application:
  *
- * 1. Import the CoreForge UI globals.css in your main CSS file:
+ * 1. Import the SystemForge UI globals.css in your main CSS file:
  *
- *    @import "@coreforge/ui/globals.css";
+ *    @import "@systemforge/ui/globals.css";
  *
  * 2. Or import it in your main entry point (e.g., main.tsx):
  *
- *    import '@coreforge/ui/globals.css';
+ *    import '@systemforge/ui/globals.css';
  *
  * The globals.css file includes:
  * - Tailwind CSS base, components, and utilities
- * - CoreForge UI design tokens via @theme
+ * - SystemForge UI design tokens via @theme
  * - Dark mode support via .dark class
  * - Animation keyframes for accordion components
  *
@@ -30,12 +30,12 @@
  */
 
 /**
- * @deprecated Use CSS import instead: @import "@coreforge/ui/globals.css"
+ * @deprecated Use CSS import instead: @import "@systemforge/ui/globals.css"
  *
  * This preset is provided for backward compatibility with Tailwind v3.
  * It will be removed in a future major version.
  */
-export const coreforgePreset = {
+export const systemforgePreset = {
   darkMode: ['class'],
   theme: {
     extend: {
@@ -83,4 +83,4 @@ export const coreforgePreset = {
   },
 };
 
-export default coreforgePreset;
+export default systemforgePreset;

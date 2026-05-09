@@ -1,10 +1,10 @@
-# CoreForge Web
+# SystemForge Web
 
-React framework for building multi-tenant SaaS applications with CoreForge.
+React framework for building multi-tenant SaaS applications with SystemForge.
 
 ## Overview
 
-CoreForge Web provides a complete set of React packages for building production-ready SaaS applications:
+SystemForge Web provides a complete set of React packages for building production-ready SaaS applications:
 
 - **Authentication** - Secure BFF-based auth with HTTP-only cookies
 - **Multi-tenancy** - Organization switching, role-based access
@@ -16,20 +16,20 @@ CoreForge Web provides a complete set of React packages for building production-
 
 | Package | Description |
 |---------|-------------|
-| `@coreforge/auth` | Authentication primitives (AuthProvider, ProtectedRoute) |
-| `@coreforge/tenant` | Multi-tenant context (TenantProvider, RequireRole) |
-| `@coreforge/api-client` | HTTP client with auth integration |
-| `@coreforge/telemetry` | Event instrumentation and error tracking |
-| `@coreforge/shell` | Application shell components |
-| `@coreforge/pages` | Pre-built pages (Login, Settings, Error) |
-| `@coreforge/design-tokens` | Design system tokens |
+| `@systemforge/auth` | Authentication primitives (AuthProvider, ProtectedRoute) |
+| `@systemforge/tenant` | Multi-tenant context (TenantProvider, RequireRole) |
+| `@systemforge/api-client` | HTTP client with auth integration |
+| `@systemforge/telemetry` | Event instrumentation and error tracking |
+| `@systemforge/shell` | Application shell components |
+| `@systemforge/pages` | Pre-built pages (Login, Settings, Error) |
+| `@systemforge/design-tokens` | Design system tokens |
 
 ## Quick Example
 
 ```tsx
-import { AuthProvider } from '@coreforge/auth';
-import { TenantProvider } from '@coreforge/tenant';
-import { AppShell } from '@coreforge/shell';
+import { AuthProvider } from '@systemforge/auth';
+import { TenantProvider } from '@systemforge/tenant';
+import { AppShell } from '@systemforge/shell';
 
 function App() {
   return (
@@ -52,7 +52,7 @@ function App() {
 
 ## Architecture
 
-CoreForge Web is designed to work with [CoreForge](https://github.com/grokify/coreforge) backends using the BFF (Backend-for-Frontend) pattern:
+SystemForge Web is designed to work with [SystemForge](https://github.com/grokify/systemforge) backends using the BFF (Backend-for-Frontend) pattern:
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -73,7 +73,7 @@ CoreForge Web is designed to work with [CoreForge](https://github.com/grokify/co
                               │
                               ▼
 ┌─────────────────────────────────────────────────────────────┐
-│                    CoreForge Backend                         │
+│                    SystemForge Backend                         │
 │         (Identity, Authorization, Multi-tenancy)             │
 └─────────────────────────────────────────────────────────────┘
 ```

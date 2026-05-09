@@ -1,5 +1,5 @@
 /**
- * Color palette for CoreForge applications
+ * Color palette for SystemForge applications
  *
  * Based on a neutral gray scale with customizable brand colors.
  * All colors support light and dark mode variants.

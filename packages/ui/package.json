@@ -1,8 +1,8 @@
 {
-  "name": "@coreforge/ui",
+  "name": "@systemforge/ui",
   "version": "0.1.0",
   "type": "module",
-  "description": "Tailwind + Radix UI components for CoreForge applications",
+  "description": "Tailwind + Radix UI components for SystemForge applications",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -60,12 +60,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/grokify/coreforge-web.git",
+    "url": "https://github.com/grokify/systemforge-web.git",
     "directory": "packages/ui"
   },
   "license": "MIT",
   "keywords": [
-    "coreforge",
+    "systemforge",
     "ui",
     "components",
     "tailwind",

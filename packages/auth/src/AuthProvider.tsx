@@ -26,7 +26,7 @@ const AuthContext = createContext<AuthContextValue | null>(null);
 /**
  * Session expired event name
  */
-export const SESSION_EXPIRED_EVENT = 'coreforge:session-expired';
+export const SESSION_EXPIRED_EVENT = 'systemforge:session-expired';
 
 /**
  * Props for AuthProvider

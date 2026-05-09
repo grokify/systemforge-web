@@ -1,7 +1,7 @@
 {
-  "name": "@coreforge/pages",
+  "name": "@systemforge/pages",
   "version": "0.1.0",
-  "description": "Standard page components for CoreForge applications",
+  "description": "Standard page components for SystemForge applications",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -23,22 +23,22 @@
   },
   "peerDependencies": {
     "react": "^19.0.0",
-    "@coreforge/auth": "workspace:*"
+    "@systemforge/auth": "workspace:*"
   },
   "devDependencies": {
-    "@coreforge/auth": "workspace:*",
+    "@systemforge/auth": "workspace:*",
     "@types/react": "^19.0.0",
     "react": "^19.0.0",
     "tsup": "^8.0.1",
     "typescript": "^5.3.3"
   },
   "keywords": [
-    "coreforge",
+    "systemforge",
     "pages",
     "login",
     "error",
     "settings"
   ],
-  "author": "CoreForge Team",
+  "author": "SystemForge Team",
   "license": "MIT"
 }

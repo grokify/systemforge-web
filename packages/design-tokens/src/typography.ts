@@ -1,5 +1,5 @@
 /**
- * Typography tokens for CoreForge applications
+ * Typography tokens for SystemForge applications
  */
 
 /**

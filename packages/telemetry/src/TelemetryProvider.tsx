@@ -20,7 +20,7 @@ export interface TelemetryProviderProps {
  *
  * @example
  * ```tsx
- * import { TelemetryProvider } from '@coreforge/telemetry';
+ * import { TelemetryProvider } from '@systemforge/telemetry';
  *
  * function App() {
  *   return (

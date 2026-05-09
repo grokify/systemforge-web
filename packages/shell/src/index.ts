@@ -1,11 +1,11 @@
 /**
- * @coreforge/shell
+ * @systemforge/shell
  *
- * Application shell components for CoreForge applications.
+ * Application shell components for SystemForge applications.
  *
  * @example
  * ```tsx
- * import { AppShell } from '@coreforge/shell';
+ * import { AppShell } from '@systemforge/shell';
  *
  * function App() {
  *   return (

@@ -9,7 +9,7 @@ import type {
 } from './types';
 
 /**
- * BFF client for CoreForge authentication endpoints
+ * BFF client for SystemForge authentication endpoints
  */
 export class BFFClient {
   private baseUrl: string;

@@ -1,7 +1,7 @@
 {
-  "name": "@coreforge/api-client",
+  "name": "@systemforge/api-client",
   "version": "0.1.0",
-  "description": "Type-safe API client with OpenAPI integration for CoreForge applications",
+  "description": "Type-safe API client with OpenAPI integration for SystemForge applications",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -33,12 +33,12 @@
     "typescript": "^5.3.3"
   },
   "keywords": [
-    "coreforge",
+    "systemforge",
     "api",
     "client",
     "openapi",
     "react-query"
   ],
-  "author": "CoreForge Team",
+  "author": "SystemForge Team",
   "license": "MIT"
 }

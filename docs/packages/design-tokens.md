@@ -1,11 +1,11 @@
-# @coreforge/design-tokens
+# @systemforge/design-tokens
 
 Design system tokens for consistent styling.
 
 ## Installation
 
 ```bash
-pnpm add @coreforge/design-tokens
+pnpm add @systemforge/design-tokens
 ```
 
 ## Features
@@ -25,7 +25,7 @@ pnpm add @coreforge/design-tokens
 ### Direct Import
 
 ```tsx
-import { colors, spacing, typography } from '@coreforge/design-tokens';
+import { colors, spacing, typography } from '@systemforge/design-tokens';
 
 const styles = {
   color: colors.primary[500],
@@ -49,7 +49,7 @@ const styles = {
 
 ```js
 // tailwind.config.js
-import { tailwindPreset } from '@coreforge/design-tokens';
+import { tailwindPreset } from '@systemforge/design-tokens';
 
 export default {
   presets: [tailwindPreset],
@@ -62,7 +62,7 @@ export default {
 ### Colors
 
 ```typescript
-import { colors } from '@coreforge/design-tokens';
+import { colors } from '@systemforge/design-tokens';
 
 colors.primary[500]    // Primary brand color
 colors.secondary[500]  // Secondary color
@@ -75,7 +75,7 @@ colors.gray[500]       // Neutral gray
 ### Typography
 
 ```typescript
-import { typography } from '@coreforge/design-tokens';
+import { typography } from '@systemforge/design-tokens';
 
 typography.sizes.xs    // 12px
 typography.sizes.sm    // 14px
@@ -98,7 +98,7 @@ typography.lineHeights.relaxed // 1.75
 ### Spacing
 
 ```typescript
-import { spacing } from '@coreforge/design-tokens';
+import { spacing } from '@systemforge/design-tokens';
 
 spacing[0]   // 0
 spacing[1]   // 4px
@@ -114,7 +114,7 @@ spacing[16]  // 64px
 ### Breakpoints
 
 ```typescript
-import { breakpoints } from '@coreforge/design-tokens';
+import { breakpoints } from '@systemforge/design-tokens';
 
 breakpoints.sm   // 640px
 breakpoints.md   // 768px
@@ -126,7 +126,7 @@ breakpoints['2xl'] // 1536px
 ### Shadows
 
 ```typescript
-import { shadows } from '@coreforge/design-tokens';
+import { shadows } from '@systemforge/design-tokens';
 
 shadows.sm     // Small shadow
 shadows.md     // Medium shadow
@@ -137,7 +137,7 @@ shadows.xl     // Extra large shadow
 ### Border Radii
 
 ```typescript
-import { radii } from '@coreforge/design-tokens';
+import { radii } from '@systemforge/design-tokens';
 
 radii.none    // 0
 radii.sm      // 2px
@@ -150,7 +150,7 @@ radii.full    // 9999px
 ### Z-Index
 
 ```typescript
-import { zIndex } from '@coreforge/design-tokens';
+import { zIndex } from '@systemforge/design-tokens';
 
 zIndex.dropdown   // 1000
 zIndex.sticky     // 1100

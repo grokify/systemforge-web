@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import type { OAuthProvider } from '@coreforge/auth';
+import type { OAuthProvider } from '@systemforge/auth';
 
 /**
  * Login page props

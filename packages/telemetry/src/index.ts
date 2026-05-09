@@ -1,7 +1,7 @@
 /**
- * @coreforge/telemetry
+ * @systemforge/telemetry
  *
- * Telemetry, error tracking, and performance monitoring for CoreForge applications.
+ * Telemetry, error tracking, and performance monitoring for SystemForge applications.
  *
  * @example Basic usage
  * ```tsx
@@ -10,7 +10,7 @@
  *   ErrorBoundary,
  *   useTelemetry,
  *   usePageView,
- * } from '@coreforge/telemetry';
+ * } from '@systemforge/telemetry';
  *
  * function App() {
  *   return (
@@ -44,8 +44,8 @@
  *
  * @example ProductGraph integration
  * ```tsx
- * import { TelemetryProvider } from '@coreforge/telemetry';
- * import { ProductGraphAdapter } from '@coreforge/telemetry/adapters/productgraph';
+ * import { TelemetryProvider } from '@systemforge/telemetry';
+ * import { ProductGraphAdapter } from '@systemforge/telemetry/adapters/productgraph';
  *
  * const productGraph = new ProductGraphAdapter({
  *   projectId: 'my-project',

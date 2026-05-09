@@ -1,8 +1,8 @@
-# CoreForge Web - Product Requirements Document
+# SystemForge Web - Product Requirements Document
 
 ## Executive Summary
 
-CoreForge Web is an open-source React framework providing a complete **web application shell** with authentication, multi-tenant organization management, and ProductGraph-ready telemetry for applications built on the CoreForge backend platform. It enables rapid development of production-ready multi-tenant SaaS applications with consistent UX patterns.
+SystemForge Web is an open-source React framework providing a complete **web application shell** with authentication, multi-tenant organization management, and ProductGraph-ready telemetry for applications built on the SystemForge backend platform. It enables rapid development of production-ready multi-tenant SaaS applications with consistent UX patterns.
 
 ## Problem Statement
 
@@ -35,7 +35,7 @@ CoreForge Web is an open-source React framework providing a complete **web appli
 ### Non-Goals
 
 - Domain-specific components (course editors, proof pages, dashboard builders)
-- Backend implementation (CoreForge backend already provides these APIs)
+- Backend implementation (SystemForge backend already provides these APIs)
 - Mobile applications (web-first focus)
 
 ## User Personas
@@ -126,7 +126,7 @@ Organization Level (Tenant Scope)
 
 ### Functional Requirements
 
-#### FR-1: Web Shell Package (`@coreforge/shell`)
+#### FR-1: Web Shell Package (`@systemforge/shell`)
 
 | ID     | Requirement                                                      | Priority |
 | ------ | ---------------------------------------------------------------- | -------- |
@@ -139,7 +139,7 @@ Organization Level (Tenant Scope)
 | FR-1.7 | Support custom branding (logo, colors via design tokens)         | P1       |
 | FR-1.8 | Emit telemetry events for navigation, org switches               | P0       |
 
-#### FR-2: Default Pages Package (`@coreforge/pages`)
+#### FR-2: Default Pages Package (`@systemforge/pages`)
 
 | ID     | Requirement                                                       | Priority |
 | ------ | ----------------------------------------------------------------- | -------- |
@@ -152,7 +152,7 @@ Organization Level (Tenant Scope)
 | FR-2.7 | Provide `<LoginPage>` with OAuth provider buttons                 | P0       |
 | FR-2.8 | Provide `<PlatformAdminPage>` (for SaaS admins)                   | P2       |
 
-#### FR-3: Authentication Package (`@coreforge/auth`)
+#### FR-3: Authentication Package (`@systemforge/auth`)
 
 | ID     | Requirement                                                                            | Priority |
 | ------ | -------------------------------------------------------------------------------------- | -------- |
@@ -165,7 +165,7 @@ Organization Level (Tenant Scope)
 | FR-3.7 | Provide `useLinkedAccounts` hook for account switching                                 | P1       |
 | FR-3.8 | Provide `useCurrentOrg` hook for organization context                                  | P0       |
 
-#### FR-4: Multi-Tenant Package (`@coreforge/tenant`)
+#### FR-4: Multi-Tenant Package (`@systemforge/tenant`)
 
 | ID     | Requirement                                                 | Priority |
 | ------ | ----------------------------------------------------------- | -------- |
@@ -177,7 +177,7 @@ Organization Level (Tenant Scope)
 | FR-4.6 | Support platform-level (non-tenant) admin context           | P1       |
 | FR-4.7 | Emit telemetry events for org context changes               | P0       |
 
-#### FR-5: API Client Package (`@coreforge/api-client`)
+#### FR-5: API Client Package (`@systemforge/api-client`)
 
 | ID     | Requirement                                                     | Priority |
 | ------ | --------------------------------------------------------------- | -------- |
@@ -188,7 +188,7 @@ Organization Level (Tenant Scope)
 | FR-5.5 | Integration with TanStack Query                                 | P1       |
 | FR-5.6 | Request deduplication for identical concurrent requests         | P2       |
 
-#### FR-6: Telemetry Package (`@coreforge/telemetry`)
+#### FR-6: Telemetry Package (`@systemforge/telemetry`)
 
 | ID     | Requirement                                                 | Priority |
 | ------ | ----------------------------------------------------------- | -------- |
@@ -201,7 +201,7 @@ Organization Level (Tenant Scope)
 | FR-6.7 | No-op mode for development/testing                          | P0       |
 | FR-6.8 | Include org_id in all events automatically                  | P0       |
 
-#### FR-7: Design Tokens Package (`@coreforge/design-tokens`)
+#### FR-7: Design Tokens Package (`@systemforge/design-tokens`)
 
 | ID     | Requirement                                             | Priority |
 | ------ | ------------------------------------------------------- | -------- |
@@ -262,10 +262,10 @@ Organization Level (Tenant Scope)
 
 ### A. Design System Integration
 
-CoreForge Web uses `design-system-spec` (DSS) format for defining design tokens:
+SystemForge Web uses `design-system-spec` (DSS) format for defining design tokens:
 
 ```
-coreforge-design-system/
+systemforge-design-system/
 ├── meta.json              # Name, version
 ├── foundations/
 │   ├── colors.json        # Brand, semantic, neutral palettes
@@ -323,7 +323,7 @@ interface Membership {
 ### C. Shell Customization API
 
 ```tsx
-import { AppShell, TopBar, LeftNav, UserMenu } from '@coreforge/shell';
+import { AppShell, TopBar, LeftNav, UserMenu } from '@systemforge/shell';
 
 function MyApp() {
   return (
@@ -384,7 +384,7 @@ function MyApp() {
 
 | Project                                                               | Relationship                                   |
 | --------------------------------------------------------------------- | ---------------------------------------------- |
-| [CoreForge](https://github.com/grokify/coreforge)                     | Backend platform (identity, auth, marketplace) |
+| [SystemForge](https://github.com/grokify/systemforge)                     | Backend platform (identity, auth, marketplace) |
 | [ProductGraph](https://github.com/plexusone/productgraph)             | Telemetry sink, journey analytics              |
 | [design-system-spec](https://github.com/plexusone/design-system-spec) | Design token format specification              |
 | [App1](https://github.com/grokify/app1)                               | Target application (LMS)                       |

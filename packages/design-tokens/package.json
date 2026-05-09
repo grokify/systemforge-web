@@ -1,7 +1,7 @@
 {
-  "name": "@coreforge/design-tokens",
+  "name": "@systemforge/design-tokens",
   "version": "0.1.0",
-  "description": "Design tokens and CSS custom properties for CoreForge applications",
+  "description": "Design tokens and CSS custom properties for SystemForge applications",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -28,11 +28,11 @@
     "typescript": "^5.3.3"
   },
   "keywords": [
-    "coreforge",
+    "systemforge",
     "design-tokens",
     "css",
     "theme"
   ],
-  "author": "CoreForge Team",
+  "author": "SystemForge Team",
   "license": "MIT"
 }

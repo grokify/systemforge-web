@@ -55,7 +55,7 @@ function createDefaultQueryClient(): QueryClient {
  *
  * @example
  * ```tsx
- * import { ApiProvider } from '@coreforge/api-client';
+ * import { ApiProvider } from '@systemforge/api-client';
  *
  * function App() {
  *   return (

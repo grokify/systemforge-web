@@ -1,11 +1,11 @@
 {
-  "name": "coreforge-web",
+  "name": "systemforge-web",
   "version": "0.0.0",
   "private": true,
-  "description": "CoreForge Web - React framework for multi-tenant SaaS applications",
+  "description": "SystemForge Web - React framework for multi-tenant SaaS applications",
   "repository": {
     "type": "git",
-    "url": "https://github.com/grokify/coreforge-web.git"
+    "url": "https://github.com/grokify/systemforge-web.git"
   },
   "license": "MIT",
   "scripts": {

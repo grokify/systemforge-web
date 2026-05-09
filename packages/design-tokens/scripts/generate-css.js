@@ -64,11 +64,11 @@ function generateColorScale(scale, name) {
 
 // Build CSS content
 const css = `/**
- * CoreForge Design Tokens
+ * SystemForge Design Tokens
  * Generated CSS custom properties
  *
  * Usage:
- * @import '@coreforge/design-tokens/css';
+ * @import '@systemforge/design-tokens/css';
  *
  * .my-component {
  *   color: var(--cf-color-fg-primary);

@@ -7,5 +7,5 @@ export default defineConfig({
   splitting: false,
   sourcemap: true,
   clean: true,
-  external: ['react', 'react-dom', '@coreforge/auth'],
+  external: ['react', 'react-dom', '@systemforge/auth'],
 });

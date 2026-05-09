@@ -1,7 +1,7 @@
 {
-  "name": "@coreforge/shell",
+  "name": "@systemforge/shell",
   "version": "0.1.0",
-  "description": "Application shell components for CoreForge applications",
+  "description": "Application shell components for SystemForge applications",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -23,25 +23,25 @@
   },
   "peerDependencies": {
     "react": "^19.0.0",
-    "@coreforge/auth": "workspace:*",
-    "@coreforge/tenant": "workspace:*",
-    "@coreforge/ui": "workspace:*"
+    "@systemforge/auth": "workspace:*",
+    "@systemforge/tenant": "workspace:*",
+    "@systemforge/ui": "workspace:*"
   },
   "devDependencies": {
-    "@coreforge/auth": "workspace:*",
-    "@coreforge/tenant": "workspace:*",
-    "@coreforge/ui": "workspace:*",
+    "@systemforge/auth": "workspace:*",
+    "@systemforge/tenant": "workspace:*",
+    "@systemforge/ui": "workspace:*",
     "@types/react": "^19.0.0",
     "react": "^19.0.0",
     "tsup": "^8.0.1",
     "typescript": "^5.3.3"
   },
   "keywords": [
-    "coreforge",
+    "systemforge",
     "shell",
     "layout",
     "navigation"
   ],
-  "author": "CoreForge Team",
+  "author": "SystemForge Team",
   "license": "MIT"
 }

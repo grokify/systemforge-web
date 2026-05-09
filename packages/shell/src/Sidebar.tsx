@@ -1,5 +1,5 @@
 import { type ReactNode } from 'react';
-import { useRoleCheck } from '@coreforge/tenant';
+import { useRoleCheck } from '@systemforge/tenant';
 import {
   Badge,
   Button,
@@ -7,7 +7,7 @@ import {
   PanelLeftCloseIcon,
   PanelLeftOpenIcon,
   cn,
-} from '@coreforge/ui';
+} from '@systemforge/ui';
 import type { SidebarProps, NavItem, NavSection } from './types';
 
 /**

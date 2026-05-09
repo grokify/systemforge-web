@@ -1,29 +1,29 @@
-# CoreForge Web
+# SystemForge Web
 
-React framework for building multi-tenant SaaS applications with CoreForge.
+React framework for building multi-tenant SaaS applications with SystemForge.
 
 ## Packages
 
 | Package                    | Description               | npm                                                                                                                     |
 | -------------------------- | ------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| `@coreforge/auth`          | Authentication primitives | [![npm](https://img.shields.io/npm/v/@coreforge/auth)](https://www.npmjs.com/package/@coreforge/auth)                   |
-| `@coreforge/tenant`        | Multi-tenant context      | [![npm](https://img.shields.io/npm/v/@coreforge/tenant)](https://www.npmjs.com/package/@coreforge/tenant)               |
-| `@coreforge/api-client`    | HTTP client               | [![npm](https://img.shields.io/npm/v/@coreforge/api-client)](https://www.npmjs.com/package/@coreforge/api-client)       |
-| `@coreforge/telemetry`     | Event instrumentation     | [![npm](https://img.shields.io/npm/v/@coreforge/telemetry)](https://www.npmjs.com/package/@coreforge/telemetry)         |
-| `@coreforge/shell`         | Application shell         | [![npm](https://img.shields.io/npm/v/@coreforge/shell)](https://www.npmjs.com/package/@coreforge/shell)                 |
-| `@coreforge/pages`         | Pre-built pages           | [![npm](https://img.shields.io/npm/v/@coreforge/pages)](https://www.npmjs.com/package/@coreforge/pages)                 |
-| `@coreforge/design-tokens` | Design system tokens      | [![npm](https://img.shields.io/npm/v/@coreforge/design-tokens)](https://www.npmjs.com/package/@coreforge/design-tokens) |
+| `@systemforge/auth`          | Authentication primitives | [![npm](https://img.shields.io/npm/v/@systemforge/auth)](https://www.npmjs.com/package/@systemforge/auth)                   |
+| `@systemforge/tenant`        | Multi-tenant context      | [![npm](https://img.shields.io/npm/v/@systemforge/tenant)](https://www.npmjs.com/package/@systemforge/tenant)               |
+| `@systemforge/api-client`    | HTTP client               | [![npm](https://img.shields.io/npm/v/@systemforge/api-client)](https://www.npmjs.com/package/@systemforge/api-client)       |
+| `@systemforge/telemetry`     | Event instrumentation     | [![npm](https://img.shields.io/npm/v/@systemforge/telemetry)](https://www.npmjs.com/package/@systemforge/telemetry)         |
+| `@systemforge/shell`         | Application shell         | [![npm](https://img.shields.io/npm/v/@systemforge/shell)](https://www.npmjs.com/package/@systemforge/shell)                 |
+| `@systemforge/pages`         | Pre-built pages           | [![npm](https://img.shields.io/npm/v/@systemforge/pages)](https://www.npmjs.com/package/@systemforge/pages)                 |
+| `@systemforge/design-tokens` | Design system tokens      | [![npm](https://img.shields.io/npm/v/@systemforge/design-tokens)](https://www.npmjs.com/package/@systemforge/design-tokens) |
 
 ## Quick Start
 
 ```bash
 # Install packages
-pnpm add @coreforge/shell @coreforge/auth @coreforge/tenant
+pnpm add @systemforge/shell @systemforge/auth @systemforge/tenant
 
 # Wrap your app
-import { AuthProvider } from '@coreforge/auth';
-import { TenantProvider } from '@coreforge/tenant';
-import { AppShell } from '@coreforge/shell';
+import { AuthProvider } from '@systemforge/auth';
+import { TenantProvider } from '@systemforge/tenant';
+import { AppShell } from '@systemforge/shell';
 
 function App() {
   return (
@@ -43,7 +43,7 @@ function App() {
 Track user behavior, journeys, and performance with ProductGraph integration:
 
 ```typescript
-import { TelemetryProvider, ProductGraphAdapter, usePageView, useJourneyStep } from '@coreforge/telemetry';
+import { TelemetryProvider, ProductGraphAdapter, usePageView, useJourneyStep } from '@systemforge/telemetry';
 
 const adapter = new ProductGraphAdapter({
   projectId: 'my-project',
@@ -73,7 +73,7 @@ function CheckoutPage() {
 
 ## Documentation
 
-- [API Documentation](https://grokify.github.io/coreforge-web/)
+- [API Documentation](https://grokify.github.io/systemforge-web/)
 - [ProductGraph Integration](docs/design/productgraph/TRD.md)
 - [Changelog](CHANGELOG.md)
 

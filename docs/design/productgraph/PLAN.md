@@ -6,7 +6,7 @@
 
 ## Executive Summary
 
-Integrate @coreforge/telemetry with ProductGraph to provide a complete frontend-to-backend observability pipeline with multi-provider analytics forwarding.
+Integrate @systemforge/telemetry with ProductGraph to provide a complete frontend-to-backend observability pipeline with multi-provider analytics forwarding.
 
 ## Current State
 
@@ -78,7 +78,7 @@ Integrate @coreforge/telemetry with ProductGraph to provide a complete frontend-
 
 1. Session ID propagation via headers
 2. Request ID generation
-3. coreforge middleware integration
+3. systemforge middleware integration
 4. Correlation documentation
 
 **Implementation:**
@@ -151,7 +151,7 @@ function createProductGraphAdapter(config: ProductGraphConfig) {
 
 // Next.js usage
 'use client';
-import { TelemetryProvider, createProductGraphAdapter } from '@coreforge/telemetry';
+import { TelemetryProvider, createProductGraphAdapter } from '@systemforge/telemetry';
 
 const adapter = createProductGraphAdapter({
   projectId: process.env.NEXT_PUBLIC_PRODUCTGRAPH_PROJECT_ID!,

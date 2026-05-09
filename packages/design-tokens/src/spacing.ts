@@ -1,5 +1,5 @@
 /**
- * Spacing scale for CoreForge applications
+ * Spacing scale for SystemForge applications
  *
  * Based on a 4px base unit with a consistent scale.
  */

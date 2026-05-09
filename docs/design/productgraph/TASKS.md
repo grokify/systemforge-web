@@ -4,7 +4,7 @@
 
 ## Overview
 
-Task breakdown for integrating @coreforge/telemetry with ProductGraph.
+Task breakdown for integrating @systemforge/telemetry with ProductGraph.
 
 ## Phase 1: Documentation
 
@@ -81,11 +81,11 @@ Task breakdown for integrating @coreforge/telemetry with ProductGraph.
 - [ ] Track request/response timing
 - [ ] Log correlation IDs in debug mode
 
-### P3.3: coreforge Middleware
+### P3.3: systemforge Middleware
 
 - [ ] Document middleware integration
 - [ ] Add correlation extraction example
-- [ ] Link to coreforge observability docs
+- [ ] Link to systemforge observability docs
 
 ## Phase 4: SSR Support
 

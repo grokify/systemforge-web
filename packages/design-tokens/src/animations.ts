@@ -1,5 +1,5 @@
 /**
- * Animation tokens for CoreForge applications
+ * Animation tokens for SystemForge applications
  */
 
 /**

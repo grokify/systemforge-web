@@ -1,11 +1,11 @@
-# @coreforge/pages
+# @systemforge/pages
 
 Pre-built pages for common application needs.
 
 ## Installation
 
 ```bash
-pnpm add @coreforge/pages react-router-dom
+pnpm add @systemforge/pages react-router-dom
 ```
 
 ## Features
@@ -22,7 +22,7 @@ pnpm add @coreforge/pages react-router-dom
 ### LoginPage
 
 ```tsx
-import { LoginPage } from '@coreforge/pages';
+import { LoginPage } from '@systemforge/pages';
 
 function Login() {
   return (
@@ -41,7 +41,7 @@ function Login() {
 ### UserSettingsPage
 
 ```tsx
-import { UserSettingsPage } from '@coreforge/pages';
+import { UserSettingsPage } from '@systemforge/pages';
 
 function Settings() {
   return (
@@ -58,7 +58,7 @@ function Settings() {
 ### ErrorPage
 
 ```tsx
-import { ErrorPage } from '@coreforge/pages';
+import { ErrorPage } from '@systemforge/pages';
 
 function NotFound() {
   return (
@@ -75,7 +75,7 @@ function NotFound() {
 ### LoadingPage
 
 ```tsx
-import { LoadingPage } from '@coreforge/pages';
+import { LoadingPage } from '@systemforge/pages';
 
 function AppLoader() {
   return <LoadingPage message="Loading your workspace..." />;
@@ -85,7 +85,7 @@ function AppLoader() {
 ### MaintenancePage
 
 ```tsx
-import { MaintenancePage } from '@coreforge/pages';
+import { MaintenancePage } from '@systemforge/pages';
 
 function Maintenance() {
   return (

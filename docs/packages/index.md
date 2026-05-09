@@ -1,6 +1,6 @@
 # Packages Overview
 
-CoreForge Web is organized as a monorepo with focused, composable packages.
+SystemForge Web is organized as a monorepo with focused, composable packages.
 
 ## Package Dependency Graph
 
@@ -12,7 +12,7 @@ CoreForge Web is organized as a monorepo with focused, composable packages.
         ┌─────────────────────┼─────────────────────┐
         ▼                     ▼                     ▼
 ┌───────────────┐     ┌───────────────┐     ┌───────────────┐
-│   @coreforge  │     │   @coreforge  │     │   @coreforge  │
+│   @systemforge  │     │   @systemforge  │     │   @systemforge  │
 │     /shell    │     │    /pages     │     │  /telemetry   │
 └───────────────┘     └───────────────┘     └───────────────┘
         │                     │                     │
@@ -21,13 +21,13 @@ CoreForge Web is organized as a monorepo with focused, composable packages.
         ┌─────────────────────┼─────────────────────┐
         ▼                     ▼                     ▼
 ┌───────────────┐     ┌───────────────┐     ┌───────────────┐
-│   @coreforge  │     │   @coreforge  │     │   @coreforge  │
+│   @systemforge  │     │   @systemforge  │     │   @systemforge  │
 │     /auth     │     │    /tenant    │     │  /api-client  │
 └───────────────┘     └───────────────┘     └───────────────┘
                               │
                               ▼
                     ┌───────────────┐
-                    │   @coreforge  │
+                    │   @systemforge  │
                     │ /design-tokens│
                     └───────────────┘
 ```
@@ -36,31 +36,31 @@ CoreForge Web is organized as a monorepo with focused, composable packages.
 
 | Package | Purpose | Key Exports |
 |---------|---------|-------------|
-| [@coreforge/auth](auth.md) | Authentication | `AuthProvider`, `ProtectedRoute`, `useAuth` |
-| [@coreforge/tenant](tenant.md) | Multi-tenancy | `TenantProvider`, `RequireRole`, `useOrganization` |
-| [@coreforge/api-client](api-client.md) | HTTP client | `ApiProvider`, `useApi`, `createClient` |
-| [@coreforge/telemetry](telemetry.md) | Instrumentation | `TelemetryProvider`, `ErrorBoundary` |
-| [@coreforge/shell](shell.md) | App layout | `AppShell`, `Sidebar`, `Navbar` |
-| [@coreforge/pages](pages.md) | Pre-built pages | `LoginPage`, `ErrorPage` |
-| [@coreforge/design-tokens](design-tokens.md) | Design system | Colors, typography, spacing |
+| [@systemforge/auth](auth.md) | Authentication | `AuthProvider`, `ProtectedRoute`, `useAuth` |
+| [@systemforge/tenant](tenant.md) | Multi-tenancy | `TenantProvider`, `RequireRole`, `useOrganization` |
+| [@systemforge/api-client](api-client.md) | HTTP client | `ApiProvider`, `useApi`, `createClient` |
+| [@systemforge/telemetry](telemetry.md) | Instrumentation | `TelemetryProvider`, `ErrorBoundary` |
+| [@systemforge/shell](shell.md) | App layout | `AppShell`, `Sidebar`, `Navbar` |
+| [@systemforge/pages](pages.md) | Pre-built pages | `LoginPage`, `ErrorPage` |
+| [@systemforge/design-tokens](design-tokens.md) | Design system | Colors, typography, spacing |
 
 ## Choosing Packages
 
 **Minimal Setup:**
 
 ```bash
-pnpm add @coreforge/auth @coreforge/tenant
+pnpm add @systemforge/auth @systemforge/tenant
 ```
 
 **Full Application:**
 
 ```bash
-pnpm add @coreforge/auth @coreforge/tenant @coreforge/api-client \
-         @coreforge/shell @coreforge/pages @coreforge/telemetry
+pnpm add @systemforge/auth @systemforge/tenant @systemforge/api-client \
+         @systemforge/shell @systemforge/pages @systemforge/telemetry
 ```
 
 **Design System Only:**
 
 ```bash
-pnpm add @coreforge/design-tokens
+pnpm add @systemforge/design-tokens
 ```

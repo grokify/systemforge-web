@@ -1,8 +1,8 @@
-# CoreForge Web - Implementation Plan
+# SystemForge Web - Implementation Plan
 
 ## Overview
 
-This document outlines the phased implementation plan for CoreForge Web, an open-source React framework providing a complete web application shell for multi-tenant SaaS applications.
+This document outlines the phased implementation plan for SystemForge Web, an open-source React framework providing a complete web application shell for multi-tenant SaaS applications.
 
 ## Phase 1: Project Setup & Core Packages (Week 1-3)
 
@@ -21,7 +21,7 @@ This document outlines the phased implementation plan for CoreForge Web, an open
 - Working monorepo structure
 - CI pipeline running lint/test/build
 
-### 1.2 Auth Package (`@coreforge/auth`)
+### 1.2 Auth Package (`@systemforge/auth`)
 
 - [ ] Extract `AuthProvider` from App1-UI
 - [ ] Extract `useAuth` hook
@@ -39,10 +39,10 @@ This document outlines the phased implementation plan for CoreForge Web, an open
 
 **Deliverables:**
 
-- Published `@coreforge/auth` package
+- Published `@systemforge/auth` package
 - Working example in docs
 
-### 1.3 Tenant Package (`@coreforge/tenant`)
+### 1.3 Tenant Package (`@systemforge/tenant`)
 
 - [ ] Create `TenantProvider` context
 - [ ] Implement `useOrganization` hook
@@ -55,12 +55,12 @@ This document outlines the phased implementation plan for CoreForge Web, an open
 
 **Deliverables:**
 
-- Published `@coreforge/tenant` package
+- Published `@systemforge/tenant` package
 - Multi-org support working
 
 ## Phase 2: API Client & Telemetry (Week 3-5)
 
-### 2.1 API Client Package (`@coreforge/api-client`)
+### 2.1 API Client Package (`@systemforge/api-client`)
 
 - [ ] Implement `createClient` factory function
 - [ ] Add request/response interceptors
@@ -72,10 +72,10 @@ This document outlines the phased implementation plan for CoreForge Web, an open
 
 **Deliverables:**
 
-- Published `@coreforge/api-client` package
+- Published `@systemforge/api-client` package
 - Integration guide for TanStack Query
 
-### 2.2 Telemetry Package (`@coreforge/telemetry`)
+### 2.2 Telemetry Package (`@systemforge/telemetry`)
 
 - [ ] Define ProductGraph event schema
 - [ ] Implement `TelemetryProvider` and `TelemetryEmitter`
@@ -87,7 +87,7 @@ This document outlines the phased implementation plan for CoreForge Web, an open
 
 **Deliverables:**
 
-- Published `@coreforge/telemetry` package
+- Published `@systemforge/telemetry` package
 - Event schema documentation
 
 ## Phase 3: Shell Components (Week 5-7)
@@ -236,9 +236,9 @@ This document outlines the phased implementation plan for CoreForge Web, an open
 
 ### 6.2 Frontend Migration
 
-- [ ] Replace Zustand auth store with `@coreforge/auth`
-- [ ] Replace local shell with `@coreforge/shell`
-- [ ] Update API calls to use `@coreforge/api-client`
+- [ ] Replace Zustand auth store with `@systemforge/auth`
+- [ ] Replace local shell with `@systemforge/shell`
+- [ ] Update API calls to use `@systemforge/api-client`
 - [ ] Remove localStorage token handling
 - [ ] Add telemetry instrumentation
 - [ ] Apply design tokens
@@ -251,16 +251,16 @@ This document outlines the phased implementation plan for CoreForge Web, an open
 
 **Deliverables:**
 
-- App2 using CoreForge Web
+- App2 using SystemForge Web
 - Security issues resolved
 
 ## Phase 7: App1-UI Alignment (Week 12-14)
 
 ### 7.1 Package Adoption
 
-- [ ] Replace local auth code with `@coreforge/auth`
-- [ ] Replace local shell with `@coreforge/shell`
-- [ ] Replace local API client with `@coreforge/api-client`
+- [ ] Replace local auth code with `@systemforge/auth`
+- [ ] Replace local shell with `@systemforge/shell`
+- [ ] Replace local API client with `@systemforge/api-client`
 - [ ] Add telemetry instrumentation
 - [ ] Apply design tokens
 
@@ -279,8 +279,8 @@ This document outlines the phased implementation plan for CoreForge Web, an open
 
 ### 8.1 Auth & Shell Setup
 
-- [ ] Add `@coreforge/auth` to App3
-- [ ] Add `@coreforge/shell` layout
+- [ ] Add `@systemforge/auth` to App3
+- [ ] Add `@systemforge/shell` layout
 - [ ] Implement login flow
 - [ ] Add protected routes
 
@@ -292,7 +292,7 @@ This document outlines the phased implementation plan for CoreForge Web, an open
 
 **Deliverables:**
 
-- App3 with full CoreForge Web integration
+- App3 with full SystemForge Web integration
 
 ## Phase 9: Documentation & Polish (Week 15-16)
 
@@ -374,7 +374,7 @@ This document outlines the phased implementation plan for CoreForge Web, an open
 
 ### Internal
 
-- CoreForge backend (BFF endpoints)
+- SystemForge backend (BFF endpoints)
 - ProductGraph (telemetry sink)
 - design-system-spec (token format)
 

@@ -1,4 +1,4 @@
-# CoreForge Web - Task Tracker
+# SystemForge Web - Task Tracker
 
 ## Status Legend
 
@@ -585,7 +585,7 @@
 - [ ] Install packages
 
   ```bash
-  pnpm add @coreforge/shell @coreforge/auth @coreforge/tenant @coreforge/api-client @coreforge/telemetry @coreforge/design-tokens
+  pnpm add @systemforge/shell @systemforge/auth @systemforge/tenant @systemforge/api-client @systemforge/telemetry @systemforge/design-tokens
   ```
 
 - [ ] Replace auth store
@@ -596,7 +596,7 @@
 
 - [ ] Replace shell
   - Remove local layout components
-  - Use `<AppShell>` from @coreforge/shell
+  - Use `<AppShell>` from @systemforge/shell
   - Configure nav items
 
 - [ ] Update API calls

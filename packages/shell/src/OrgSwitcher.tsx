@@ -1,5 +1,5 @@
 import { type ReactNode } from 'react';
-import { useTenant } from '@coreforge/tenant';
+import { useTenant } from '@systemforge/tenant';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -12,7 +12,7 @@ import {
   ChevronDownIcon,
   CheckIcon,
   cn,
-} from '@coreforge/ui';
+} from '@systemforge/ui';
 import type { OrgSwitcherProps } from './types';
 
 /**

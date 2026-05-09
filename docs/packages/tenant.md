@@ -1,11 +1,11 @@
-# @coreforge/tenant
+# @systemforge/tenant
 
 Multi-tenancy primitives for organization-based applications.
 
 ## Installation
 
 ```bash
-pnpm add @coreforge/tenant
+pnpm add @systemforge/tenant
 ```
 
 ## Features
@@ -23,8 +23,8 @@ pnpm add @coreforge/tenant
 Wrap your application with `TenantProvider` (inside `AuthProvider`):
 
 ```tsx
-import { AuthProvider } from '@coreforge/auth';
-import { TenantProvider } from '@coreforge/tenant';
+import { AuthProvider } from '@systemforge/auth';
+import { TenantProvider } from '@systemforge/tenant';
 
 function App() {
   return (
@@ -42,7 +42,7 @@ function App() {
 Access the current organization:
 
 ```tsx
-import { useOrganization } from '@coreforge/tenant';
+import { useOrganization } from '@systemforge/tenant';
 
 function OrgInfo() {
   const { organization, membership, isLoading } = useOrganization();
@@ -63,7 +63,7 @@ function OrgInfo() {
 List and switch organizations:
 
 ```tsx
-import { useOrganizations } from '@coreforge/tenant';
+import { useOrganizations } from '@systemforge/tenant';
 
 function OrgSwitcher() {
   const { organizations, currentOrg, switchOrg, isLoading } = useOrganizations();
@@ -89,7 +89,7 @@ function OrgSwitcher() {
 Restrict access based on role:
 
 ```tsx
-import { RequireRole } from '@coreforge/tenant';
+import { RequireRole } from '@systemforge/tenant';
 
 function AdminPanel() {
   return (

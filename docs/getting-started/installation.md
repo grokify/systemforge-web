@@ -11,18 +11,18 @@ Install the packages you need:
 
 ```bash
 # Core packages (recommended starting point)
-pnpm add @coreforge/auth @coreforge/tenant @coreforge/shell
+pnpm add @systemforge/auth @systemforge/tenant @systemforge/shell
 
 # Optional packages
-pnpm add @coreforge/api-client    # HTTP client
-pnpm add @coreforge/telemetry     # Event tracking
-pnpm add @coreforge/pages         # Pre-built pages
-pnpm add @coreforge/design-tokens # Design tokens
+pnpm add @systemforge/api-client    # HTTP client
+pnpm add @systemforge/telemetry     # Event tracking
+pnpm add @systemforge/pages         # Pre-built pages
+pnpm add @systemforge/design-tokens # Design tokens
 ```
 
 ## Peer Dependencies
 
-CoreForge Web packages have the following peer dependencies:
+SystemForge Web packages have the following peer dependencies:
 
 ```json
 {
@@ -35,9 +35,9 @@ Some packages have additional peer dependencies:
 
 | Package | Additional Peers |
 |---------|------------------|
-| `@coreforge/api-client` | `@tanstack/react-query` |
-| `@coreforge/shell` | `react-router-dom` |
-| `@coreforge/pages` | `react-router-dom` |
+| `@systemforge/api-client` | `@tanstack/react-query` |
+| `@systemforge/shell` | `react-router-dom` |
+| `@systemforge/pages` | `react-router-dom` |
 
 ## TypeScript
 
@@ -54,7 +54,7 @@ All packages include TypeScript declarations. No additional `@types/*` packages 
 
 ## Framework Support
 
-CoreForge Web works with any React framework:
+SystemForge Web works with any React framework:
 
 - **Vite** - Recommended for new projects
 - **Next.js** - Use with App Router (client components)

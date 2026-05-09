@@ -1,5 +1,5 @@
 /**
- * Responsive breakpoints for CoreForge applications
+ * Responsive breakpoints for SystemForge applications
  */
 
 /**

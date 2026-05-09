@@ -1,11 +1,11 @@
-# @coreforge/shell
+# @systemforge/shell
 
 Application shell components for consistent layouts.
 
 ## Installation
 
 ```bash
-pnpm add @coreforge/shell react-router-dom
+pnpm add @systemforge/shell react-router-dom
 ```
 
 ## Features
@@ -24,7 +24,7 @@ pnpm add @coreforge/shell react-router-dom
 The main layout component:
 
 ```tsx
-import { AppShell } from '@coreforge/shell';
+import { AppShell } from '@systemforge/shell';
 
 function App() {
   return (
@@ -63,7 +63,7 @@ const navigation = [
 ### Custom User Menu
 
 ```tsx
-import { AppShell, UserMenu } from '@coreforge/shell';
+import { AppShell, UserMenu } from '@systemforge/shell';
 
 function App() {
   return (
@@ -88,7 +88,7 @@ function App() {
 ### Breadcrumbs
 
 ```tsx
-import { Breadcrumbs } from '@coreforge/shell';
+import { Breadcrumbs } from '@systemforge/shell';
 
 function ProjectPage() {
   return (

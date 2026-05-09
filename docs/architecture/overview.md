@@ -1,6 +1,6 @@
 # Architecture Overview
 
-CoreForge Web follows a modular, composable architecture designed for multi-tenant SaaS applications.
+SystemForge Web follows a modular, composable architecture designed for multi-tenant SaaS applications.
 
 ## Design Principles
 
@@ -59,7 +59,7 @@ CoreForge Web follows a modular, composable architecture designed for multi-tena
                                     │ Internal (JWT)
                                     ▼
 ┌─────────────────────────────────────────────────────────────────────────┐
-│                         CoreForge Backend                                │
+│                         SystemForge Backend                                │
 │                                                                          │
 │  ┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐          │
 │  │    Identity     │  │  Authorization  │  │   Multi-tenant  │          │
@@ -144,20 +144,20 @@ The recommended provider order:
 ## Package Dependencies
 
 ```
-@coreforge/design-tokens  (standalone)
+@systemforge/design-tokens  (standalone)
          │
          ▼
-@coreforge/auth ◄──────── @coreforge/tenant
+@systemforge/auth ◄──────── @systemforge/tenant
          │                       │
          └───────────┬───────────┘
                      │
          ┌───────────┴───────────┐
          ▼                       ▼
-@coreforge/api-client    @coreforge/telemetry
+@systemforge/api-client    @systemforge/telemetry
          │                       │
          └───────────┬───────────┘
                      │
          ┌───────────┴───────────┐
          ▼                       ▼
-  @coreforge/shell       @coreforge/pages
+  @systemforge/shell       @systemforge/pages
 ```

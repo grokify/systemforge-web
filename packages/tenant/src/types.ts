@@ -1,4 +1,4 @@
-import type { Role } from '@coreforge/auth';
+import type { Role } from '@systemforge/auth';
 
 /**
  * Organization type
@@ -75,7 +75,7 @@ export interface Invitation {
  */
 export interface TenantConfig {
   /**
-   * localStorage key for persisting current org (default: "coreforge:current_org")
+   * localStorage key for persisting current org (default: "systemforge:current_org")
    */
   storageKey?: string;
 

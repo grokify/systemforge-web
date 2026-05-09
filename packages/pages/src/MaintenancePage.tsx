@@ -34,7 +34,7 @@ function MaintenanceIcon(): ReactNode {
  * ```
  */
 export function MaintenancePage({
-  appName = 'CoreForge',
+  appName = 'SystemForge',
   logo,
   title = 'Under Maintenance',
   message = "We're performing scheduled maintenance. We'll be back shortly.",

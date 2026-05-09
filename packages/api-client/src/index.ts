@@ -1,11 +1,11 @@
 /**
- * @coreforge/api-client
+ * @systemforge/api-client
  *
- * Type-safe API client with React Query integration for CoreForge applications.
+ * Type-safe API client with React Query integration for SystemForge applications.
  *
  * @example
  * ```tsx
- * import { ApiProvider, useApiQuery, useApiMutation } from '@coreforge/api-client';
+ * import { ApiProvider, useApiQuery, useApiMutation } from '@systemforge/api-client';
  *
  * function App() {
  *   return (

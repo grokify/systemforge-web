@@ -1,11 +1,11 @@
 /**
- * @coreforge/auth
+ * @systemforge/auth
  *
- * Authentication primitives for CoreForge applications.
+ * Authentication primitives for SystemForge applications.
  *
  * @example
  * ```tsx
- * import { AuthProvider, useAuth, ProtectedRoute } from '@coreforge/auth';
+ * import { AuthProvider, useAuth, ProtectedRoute } from '@systemforge/auth';
  *
  * function App() {
  *   return (

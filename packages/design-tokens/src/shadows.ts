@@ -1,5 +1,5 @@
 /**
- * Shadow tokens for CoreForge applications
+ * Shadow tokens for SystemForge applications
  */
 
 /**

@@ -1,11 +1,11 @@
-# @coreforge/auth
+# @systemforge/auth
 
 Authentication primitives for secure BFF-based authentication.
 
 ## Installation
 
 ```bash
-pnpm add @coreforge/auth
+pnpm add @systemforge/auth
 ```
 
 ## Features
@@ -23,7 +23,7 @@ pnpm add @coreforge/auth
 Wrap your application with `AuthProvider`:
 
 ```tsx
-import { AuthProvider } from '@coreforge/auth';
+import { AuthProvider } from '@systemforge/auth';
 
 function App() {
   return (
@@ -39,7 +39,7 @@ function App() {
 Access authentication state and methods:
 
 ```tsx
-import { useAuth } from '@coreforge/auth';
+import { useAuth } from '@systemforge/auth';
 
 function UserInfo() {
   const { user, isAuthenticated, isLoading, login, logout } = useAuth();
@@ -65,7 +65,7 @@ Protect routes that require authentication:
 
 ```tsx
 import { Routes, Route } from 'react-router-dom';
-import { ProtectedRoute } from '@coreforge/auth';
+import { ProtectedRoute } from '@systemforge/auth';
 
 function AppRoutes() {
   return (
@@ -85,7 +85,7 @@ function AppRoutes() {
 Manage OAuth provider connections:
 
 ```tsx
-import { useLinkedAccounts } from '@coreforge/auth';
+import { useLinkedAccounts } from '@systemforge/auth';
 
 function LinkedAccounts() {
   const { accounts, link, unlink } = useLinkedAccounts();

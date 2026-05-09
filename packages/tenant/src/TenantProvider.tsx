@@ -7,7 +7,7 @@ import {
   useMemo,
   type ReactNode,
 } from 'react';
-import { useAuth, type Membership, type Role } from '@coreforge/auth';
+import { useAuth, type Membership, type Role } from '@systemforge/auth';
 import type {
   Organization,
   OrganizationMembership,
@@ -23,7 +23,7 @@ const TenantContext = createContext<TenantContextValue | null>(null);
 /**
  * Organization change event name
  */
-export const ORG_CHANGE_EVENT = 'coreforge:org-change';
+export const ORG_CHANGE_EVENT = 'systemforge:org-change';
 
 /**
  * Props for TenantProvider
@@ -75,7 +75,7 @@ function toOrgMembership(membership: Membership, org: Organization): Organizatio
  */
 export function TenantProvider({
   children,
-  storageKey = 'coreforge:current_org',
+  storageKey = 'systemforge:current_org',
   defaultOrgId,
   onOrgChange,
 }: TenantProviderProps) {

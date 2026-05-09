@@ -1,7 +1,7 @@
 {
-  "name": "@coreforge/auth",
+  "name": "@systemforge/auth",
   "version": "0.1.0",
-  "description": "Authentication primitives for CoreForge applications",
+  "description": "Authentication primitives for SystemForge applications",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -41,12 +41,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/grokify/coreforge-web.git",
+    "url": "https://github.com/grokify/systemforge-web.git",
     "directory": "packages/auth"
   },
   "license": "MIT",
   "keywords": [
-    "coreforge",
+    "systemforge",
     "auth",
     "authentication",
     "react",

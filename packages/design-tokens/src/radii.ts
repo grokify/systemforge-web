@@ -1,5 +1,5 @@
 /**
- * Border radius tokens for CoreForge applications
+ * Border radius tokens for SystemForge applications
  */
 
 /**

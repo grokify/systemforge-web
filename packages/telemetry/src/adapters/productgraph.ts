@@ -1,13 +1,13 @@
 /**
- * ProductGraph Adapter for @coreforge/telemetry
+ * ProductGraph Adapter for @systemforge/telemetry
  *
  * This adapter sends telemetry events to ProductGraph's event ingestion API,
  * using OpenTelemetry-compatible semantic conventions.
  *
  * @example
  * ```tsx
- * import { TelemetryProvider } from '@coreforge/telemetry';
- * import { ProductGraphAdapter } from '@coreforge/telemetry/adapters/productgraph';
+ * import { TelemetryProvider } from '@systemforge/telemetry';
+ * import { ProductGraphAdapter } from '@systemforge/telemetry/adapters/productgraph';
  *
  * const productGraph = new ProductGraphAdapter({
  *   projectId: 'my-project',
