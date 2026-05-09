@@ -1,67 +1,19 @@
-import { useState, useRef, useEffect, type ReactNode } from 'react';
+import { type ReactNode } from 'react';
 import { useTenant } from '@coreforge/tenant';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+  Avatar,
+  AvatarImage,
+  AvatarFallback,
+  BuildingIcon,
+  ChevronDownIcon,
+  CheckIcon,
+  cn,
+} from '@coreforge/ui';
 import type { OrgSwitcherProps } from './types';
-
-/**
- * Default org icon
- */
-function DefaultOrgIcon(): ReactNode {
-  return (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-      <polyline points="9 22 9 12 15 12 15 22" />
-    </svg>
-  );
-}
-
-/**
- * Chevron down icon
- */
-function ChevronIcon(): ReactNode {
-  return (
-    <svg
-      width="16"
-      height="16"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <polyline points="6 9 12 15 18 9" />
-    </svg>
-  );
-}
-
-/**
- * Check icon
- */
-function CheckIcon(): ReactNode {
-  return (
-    <svg
-      width="16"
-      height="16"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <polyline points="20 6 9 17 4 12" />
-    </svg>
-  );
-}
 
 /**
  * OrgSwitcher - Dropdown for switching between organizations
@@ -73,57 +25,10 @@ function CheckIcon(): ReactNode {
  */
 export function OrgSwitcher({ compact = false }: OrgSwitcherProps): ReactNode {
   const { currentOrg, organizations, setCurrentOrg, isLoading } = useTenant();
-  const [isOpen, setIsOpen] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  /**
-   * Close dropdown when clicking outside
-   */
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
-        setIsOpen(false);
-      }
-    };
-
-    if (isOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
-    }
-
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [isOpen]);
-
-  /**
-   * Close on escape key
-   */
-  useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        setIsOpen(false);
-      }
-    };
-
-    if (isOpen) {
-      document.addEventListener('keydown', handleKeyDown);
-    }
-
-    return () => {
-      document.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [isOpen]);
 
   if (isLoading) {
     return (
-      <div
-        style={{
-          padding: '8px 12px',
-          backgroundColor: 'var(--cf-color-bg-secondary, #f4f4f5)',
-          borderRadius: '6px',
-          opacity: 0.5,
-        }}
-      >
+      <div className="px-3 py-2 bg-secondary rounded-md opacity-50 text-sm">
         Loading...
       </div>
     );
@@ -135,150 +40,67 @@ export function OrgSwitcher({ compact = false }: OrgSwitcherProps): ReactNode {
 
   const handleSelect = (orgId: string) => {
     setCurrentOrg(orgId);
-    setIsOpen(false);
   };
 
   return (
-    <div ref={containerRef} style={{ position: 'relative' }}>
-      <button
-        type="button"
-        onClick={() => setIsOpen(!isOpen)}
-        aria-expanded={isOpen}
-        aria-haspopup="listbox"
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '8px',
-          padding: compact ? '8px' : '8px 12px',
-          backgroundColor: 'var(--cf-color-bg-secondary, #f4f4f5)',
-          border: '1px solid var(--cf-color-border-default, #e4e4e7)',
-          borderRadius: '6px',
-          cursor: 'pointer',
-          minWidth: compact ? 'auto' : '180px',
-          textAlign: 'left',
-        }}
-      >
-        {currentOrg.logo_url ? (
-          <img
-            src={currentOrg.logo_url}
-            alt=""
-            style={{
-              width: '20px',
-              height: '20px',
-              borderRadius: '4px',
-              objectFit: 'cover',
-            }}
-          />
-        ) : (
-          <span style={{ color: 'var(--cf-color-fg-secondary, #52525b)' }}>
-            <DefaultOrgIcon />
-          </span>
-        )}
-
-        {!compact && (
-          <>
-            <span
-              style={{
-                flex: 1,
-                overflow: 'hidden',
-                textOverflow: 'ellipsis',
-                whiteSpace: 'nowrap',
-                color: 'var(--cf-color-fg-primary, #18181b)',
-                fontSize: '14px',
-                fontWeight: 500,
-              }}
-            >
-              {currentOrg.name}
-            </span>
-            <span style={{ color: 'var(--cf-color-fg-tertiary, #a1a1aa)' }}>
-              <ChevronIcon />
-            </span>
-          </>
-        )}
-      </button>
-
-      {isOpen && (
-        <div
-          role="listbox"
-          style={{
-            position: 'absolute',
-            top: '100%',
-            left: 0,
-            right: compact ? 'auto' : 0,
-            marginTop: '4px',
-            minWidth: '200px',
-            backgroundColor: 'var(--cf-color-bg-primary, #ffffff)',
-            border: '1px solid var(--cf-color-border-default, #e4e4e7)',
-            borderRadius: '8px',
-            boxShadow: 'var(--cf-shadow-lg, 0 10px 15px -3px rgb(0 0 0 / 0.1))',
-            zIndex: 'var(--cf-z-dropdown, 1000)',
-            overflow: 'hidden',
-          }}
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <button
+          type="button"
+          className={cn(
+            'flex items-center gap-2 bg-secondary border border-border rounded-md cursor-pointer text-left',
+            compact ? 'p-2' : 'px-3 py-2 min-w-[180px]'
+          )}
         >
-          <div style={{ padding: '4px' }}>
-            {organizations.map((org) => (
-              <button
-                key={org.id}
-                type="button"
-                role="option"
-                aria-selected={org.id === currentOrg.id}
-                onClick={() => handleSelect(org.id)}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  width: '100%',
-                  padding: '8px 12px',
-                  backgroundColor:
-                    org.id === currentOrg.id
-                      ? 'var(--cf-color-selected-bg, #eff6ff)'
-                      : 'transparent',
-                  border: 'none',
-                  borderRadius: '4px',
-                  cursor: 'pointer',
-                  textAlign: 'left',
-                }}
-              >
-                {org.logo_url ? (
-                  <img
-                    src={org.logo_url}
-                    alt=""
-                    style={{
-                      width: '20px',
-                      height: '20px',
-                      borderRadius: '4px',
-                      objectFit: 'cover',
-                    }}
-                  />
-                ) : (
-                  <span style={{ color: 'var(--cf-color-fg-secondary, #52525b)' }}>
-                    <DefaultOrgIcon />
-                  </span>
-                )}
+          <Avatar className="h-5 w-5 rounded">
+            {currentOrg.logo_url ? (
+              <AvatarImage src={currentOrg.logo_url} alt="" />
+            ) : null}
+            <AvatarFallback className="rounded bg-transparent">
+              <BuildingIcon className="h-4 w-4 text-muted-foreground" />
+            </AvatarFallback>
+          </Avatar>
 
-                <span
-                  style={{
-                    flex: 1,
-                    overflow: 'hidden',
-                    textOverflow: 'ellipsis',
-                    whiteSpace: 'nowrap',
-                    color: 'var(--cf-color-fg-primary, #18181b)',
-                    fontSize: '14px',
-                  }}
-                >
-                  {org.name}
-                </span>
+          {!compact && (
+            <>
+              <span className="flex-1 overflow-hidden text-ellipsis whitespace-nowrap text-sm font-medium text-foreground">
+                {currentOrg.name}
+              </span>
+              <ChevronDownIcon className="h-4 w-4 text-muted-foreground" />
+            </>
+          )}
+        </button>
+      </DropdownMenuTrigger>
 
-                {org.id === currentOrg.id && (
-                  <span style={{ color: 'var(--cf-color-brand-primary, #2563eb)' }}>
-                    <CheckIcon />
-                  </span>
-                )}
-              </button>
-            ))}
-          </div>
-        </div>
-      )}
-    </div>
+      <DropdownMenuContent align="start" className="min-w-[200px]">
+        {organizations.map((org) => (
+          <DropdownMenuItem
+            key={org.id}
+            onClick={() => handleSelect(org.id)}
+            className={cn(
+              'cursor-pointer',
+              org.id === currentOrg.id && 'bg-accent'
+            )}
+          >
+            <Avatar className="h-5 w-5 mr-2 rounded">
+              {org.logo_url ? (
+                <AvatarImage src={org.logo_url} alt="" />
+              ) : null}
+              <AvatarFallback className="rounded bg-transparent">
+                <BuildingIcon className="h-4 w-4 text-muted-foreground" />
+              </AvatarFallback>
+            </Avatar>
+
+            <span className="flex-1 overflow-hidden text-ellipsis whitespace-nowrap text-sm">
+              {org.name}
+            </span>
+
+            {org.id === currentOrg.id && (
+              <CheckIcon className="h-4 w-4 text-primary ml-2" />
+            )}
+          </DropdownMenuItem>
+        ))}
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 }

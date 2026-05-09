@@ -1,46 +1,6 @@
 import { type ReactNode } from 'react';
+import { ChevronRightIcon, HomeIcon, cn } from '@coreforge/ui';
 import type { BreadcrumbsProps } from './types';
-
-/**
- * Home icon
- */
-function HomeIcon(): ReactNode {
-  return (
-    <svg
-      width="16"
-      height="16"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-      <polyline points="9 22 9 12 15 12 15 22" />
-    </svg>
-  );
-}
-
-/**
- * Default separator
- */
-function DefaultSeparator(): ReactNode {
-  return (
-    <svg
-      width="16"
-      height="16"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <polyline points="9 18 15 12 9 6" />
-    </svg>
-  );
-}
 
 /**
  * Breadcrumbs - Navigation breadcrumb trail
@@ -59,7 +19,7 @@ function DefaultSeparator(): ReactNode {
 export function Breadcrumbs({
   items,
   onNavigate,
-  separator = <DefaultSeparator />,
+  separator,
   maxItems,
 }: BreadcrumbsProps): ReactNode {
   if (items.length === 0) {
@@ -86,19 +46,11 @@ export function Breadcrumbs({
     displayItems = [items[0], { label: '...', href: undefined }, ...items.slice(-(maxItems - 2))];
   }
 
+  const defaultSeparator = <ChevronRightIcon className="h-4 w-4" />;
+
   return (
     <nav aria-label="Breadcrumb">
-      <ol
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '4px',
-          listStyle: 'none',
-          margin: 0,
-          padding: 0,
-          fontSize: '14px',
-        }}
-      >
+      <ol className="flex items-center gap-1 list-none m-0 p-0 text-sm">
         {displayItems.map((item, index) => {
           const isLast = index === displayItems.length - 1;
           const isFirst = index === 0;
@@ -107,67 +59,37 @@ export function Breadcrumbs({
           return (
             <li
               key={`${item.label}-${index}`}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '4px',
-              }}
+              className="flex items-center gap-1"
             >
               {index > 0 && (
-                <span
-                  style={{
-                    color: 'var(--cf-color-fg-tertiary, #a1a1aa)',
-                    display: 'flex',
-                    alignItems: 'center',
-                  }}
-                  aria-hidden="true"
-                >
-                  {separator}
+                <span className="text-muted-foreground flex items-center" aria-hidden="true">
+                  {separator || defaultSeparator}
                 </span>
               )}
 
               {isCollapsed ? (
-                <span
-                  style={{
-                    color: 'var(--cf-color-fg-tertiary, #a1a1aa)',
-                    padding: '2px 4px',
-                  }}
-                >
+                <span className="text-muted-foreground px-1 py-0.5">
                   {item.label}
                 </span>
               ) : item.href && !isLast ? (
                 <a
                   href={item.href}
                   onClick={(e) => handleClick(item.href, e)}
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '4px',
-                    color: 'var(--cf-color-fg-secondary, #52525b)',
-                    textDecoration: 'none',
-                    padding: '2px 4px',
-                    borderRadius: '4px',
-                  }}
+                  className="flex items-center gap-1 text-muted-foreground no-underline px-1 py-0.5 rounded hover:text-foreground hover:bg-accent"
                 >
-                  {isFirst && !item.icon && <HomeIcon />}
+                  {isFirst && !item.icon && <HomeIcon className="h-4 w-4" />}
                   {item.icon}
                   <span>{item.label}</span>
                 </a>
               ) : (
                 <span
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '4px',
-                    color: isLast
-                      ? 'var(--cf-color-fg-primary, #18181b)'
-                      : 'var(--cf-color-fg-secondary, #52525b)',
-                    fontWeight: isLast ? 500 : 400,
-                    padding: '2px 4px',
-                  }}
+                  className={cn(
+                    'flex items-center gap-1 px-1 py-0.5',
+                    isLast ? 'text-foreground font-medium' : 'text-muted-foreground'
+                  )}
                   aria-current={isLast ? 'page' : undefined}
                 >
-                  {isFirst && !item.icon && <HomeIcon />}
+                  {isFirst && !item.icon && <HomeIcon className="h-4 w-4" />}
                   {item.icon}
                   <span>{item.label}</span>
                 </span>

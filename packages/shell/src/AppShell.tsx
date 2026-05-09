@@ -28,37 +28,19 @@ function AppShellInner({
 
   // Default logo if not provided
   const defaultLogo = (
-    <div
-      style={{
-        fontWeight: 600,
-        fontSize: '18px',
-        color: 'var(--cf-color-fg-primary, #18181b)',
-      }}
-    >
+    <div className="font-semibold text-lg text-foreground">
       {appName}
     </div>
   );
 
   const defaultLogoCollapsed = (
-    <div
-      style={{
-        fontWeight: 700,
-        fontSize: '18px',
-        color: 'var(--cf-color-brand-primary, #2563eb)',
-      }}
-    >
+    <div className="font-bold text-lg text-primary">
       {appName.charAt(0)}
     </div>
   );
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        minHeight: '100vh',
-        backgroundColor: 'var(--cf-color-bg-secondary, #f4f4f5)',
-      }}
-    >
+    <div className="flex min-h-screen bg-secondary">
       {/* Sidebar */}
       <Sidebar
         navigation={navigation}
@@ -73,25 +55,13 @@ function AppShellInner({
       {/* Mobile sidebar overlay */}
       {sidebarVisible && (
         <div
-          style={{
-            position: 'fixed',
-            inset: 0,
-            backgroundColor: 'rgba(0, 0, 0, 0.5)',
-            zIndex: 'var(--cf-z-overlay, 1300)',
-          }}
+          className="fixed inset-0 bg-black/50 z-[1300] md:hidden"
           onClick={toggleSidebarVisible}
         />
       )}
 
       {/* Main content area */}
-      <div
-        style={{
-          flex: 1,
-          display: 'flex',
-          flexDirection: 'column',
-          minWidth: 0,
-        }}
-      >
+      <div className="flex-1 flex flex-col min-w-0">
         {/* Navbar */}
         <Navbar
           showOrgSwitcher={showOrgSwitcher}
@@ -101,13 +71,7 @@ function AppShellInner({
         />
 
         {/* Main content */}
-        <main
-          style={{
-            flex: 1,
-            padding: '24px',
-            overflowY: 'auto',
-          }}
-        >
+        <main className="flex-1 p-6 overflow-y-auto">
           {children}
         </main>
       </div>
