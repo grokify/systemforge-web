@@ -7,9 +7,9 @@
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
-      "require": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "require": "./dist/index.js"
     }
   },
   "files": [
@@ -22,15 +22,17 @@
     "typecheck": "tsc --noEmit"
   },
   "peerDependencies": {
-    "react": "^18.0.0",
+    "react": "^19.0.0",
     "@coreforge/auth": "workspace:*",
-    "@coreforge/tenant": "workspace:*"
+    "@coreforge/tenant": "workspace:*",
+    "@coreforge/ui": "workspace:*"
   },
   "devDependencies": {
     "@coreforge/auth": "workspace:*",
     "@coreforge/tenant": "workspace:*",
-    "@types/react": "^18.2.45",
-    "react": "^18.2.0",
+    "@coreforge/ui": "workspace:*",
+    "@types/react": "^19.0.0",
+    "react": "^19.0.0",
     "tsup": "^8.0.1",
     "typescript": "^5.3.3"
   },
