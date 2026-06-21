@@ -281,3 +281,161 @@ export interface UserSettingsPageProps {
    */
   oauthProviders?: OAuthProvider[];
 }
+
+/**
+ * Organization settings tab
+ */
+export type OrgSettingsTab = 'general' | 'members' | 'invitations' | 'danger';
+
+/**
+ * Role type
+ */
+export type MemberRole = 'owner' | 'admin' | 'member';
+
+/**
+ * Member in an organization
+ */
+export interface OrgMember {
+  id: string;
+  principal_id: string;
+  organization_id: string;
+  role: MemberRole;
+  permissions: string[];
+  active: boolean;
+  created_at: string;
+  updated_at: string;
+  user?: {
+    id: string;
+    email: string;
+    name: string;
+    avatar_url?: string;
+  };
+}
+
+/**
+ * Invitation to join organization
+ */
+export interface OrgInvitation {
+  id: string;
+  organization_id: string;
+  email?: string;
+  invite_code?: string;
+  role: MemberRole;
+  max_uses?: number;
+  use_count: number;
+  status: 'pending' | 'accepted' | 'expired' | 'revoked';
+  invited_by: string;
+  inviter_name?: string;
+  expires_at?: string;
+  created_at: string;
+}
+
+/**
+ * Organization members page props
+ */
+export interface OrganizationMembersPageProps {
+  /**
+   * Organization slug
+   */
+  orgSlug: string;
+
+  /**
+   * Current user's principal ID
+   */
+  currentUserId?: string;
+
+  /**
+   * Current user's role in the organization
+   */
+  currentUserRole?: MemberRole;
+
+  /**
+   * API base URL
+   */
+  apiBaseUrl?: string;
+
+  /**
+   * Callback when member is updated
+   */
+  onMemberUpdate?: () => void;
+
+  /**
+   * Callback when ownership is transferred
+   */
+  onOwnershipTransferred?: () => void;
+}
+
+/**
+ * Organization invitations page props
+ */
+export interface OrganizationInvitationsPageProps {
+  /**
+   * Organization slug
+   */
+  orgSlug: string;
+
+  /**
+   * Current user's role in the organization
+   */
+  currentUserRole?: MemberRole;
+
+  /**
+   * API base URL
+   */
+  apiBaseUrl?: string;
+
+  /**
+   * Callback when invitation is created
+   */
+  onInvitationCreated?: () => void;
+
+  /**
+   * Callback when invitation is revoked
+   */
+  onInvitationRevoked?: () => void;
+}
+
+/**
+ * Organization settings page props
+ */
+export interface OrganizationSettingsPageProps {
+  /**
+   * Organization slug
+   */
+  orgSlug: string;
+
+  /**
+   * Currently active tab
+   */
+  activeTab?: OrgSettingsTab;
+
+  /**
+   * Available tabs (default: all)
+   */
+  tabs?: OrgSettingsTab[];
+
+  /**
+   * Current user's principal ID
+   */
+  currentUserId?: string;
+
+  /**
+   * Current user's role in the organization
+   */
+  currentUserRole?: MemberRole;
+
+  /**
+   * API base URL
+   */
+  apiBaseUrl?: string;
+
+  /**
+   * Callback when tab changes
+   */
+  onTabChange?: (tab: OrgSettingsTab) => void;
+
+  /**
+   * Custom navigation handler
+   */
+  onNavigate?: (href: string) => void;
+}
