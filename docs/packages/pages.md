@@ -141,3 +141,205 @@ function Maintenance() {
 | `title` | `string` | Page title |
 | `message` | `string` | Maintenance message |
 | `estimatedTime` | `string` | Estimated downtime |
+
+## Organization Management Pages
+
+Pages for managing organization members, invitations, and settings.
+
+### OrganizationMembersPage
+
+Manage organization members with role editing and ownership transfer.
+
+```tsx
+import { OrganizationMembersPage } from '@systemforge/pages';
+
+function Members() {
+  return (
+    <OrganizationMembersPage
+      orgSlug="my-org"
+      currentUserId="user-123"
+      currentUserRole="owner"
+      apiBaseUrl="/api"
+      onMemberUpdate={() => {
+        // Refresh data
+      }}
+      onOwnershipTransferred={() => {
+        // Handle ownership change
+      }}
+    />
+  );
+}
+```
+
+**Features:**
+
+- Member list with avatars and role badges
+- Edit member roles (admin/member)
+- Remove members from organization
+- Transfer ownership modal (owner only)
+
+### OrganizationInvitationsPage
+
+Manage pending invitations to join the organization.
+
+```tsx
+import { OrganizationInvitationsPage } from '@systemforge/pages';
+
+function Invitations() {
+  return (
+    <OrganizationInvitationsPage
+      orgSlug="my-org"
+      currentUserRole="admin"
+      apiBaseUrl="/api"
+      onInvitationCreated={() => {
+        toast.success('Invitation sent');
+      }}
+      onInvitationRevoked={() => {
+        toast.success('Invitation revoked');
+      }}
+    />
+  );
+}
+```
+
+**Features:**
+
+- List pending invitations with expiration
+- Create new invitations (email + role)
+- Revoke pending invitations
+- View invitation history
+
+### OrganizationSettingsPage
+
+Tabbed settings page for organization configuration.
+
+```tsx
+import { OrganizationSettingsPage } from '@systemforge/pages';
+
+function OrgSettings() {
+  return (
+    <OrganizationSettingsPage
+      orgSlug="my-org"
+      activeTab="general"
+      currentUserRole="owner"
+      apiBaseUrl="/api"
+      onTabChange={(tab) => {
+        navigate(`/settings/${tab}`);
+      }}
+    />
+  );
+}
+```
+
+**Tabs:**
+
+- **General** - Organization name, logo URL
+- **Members** - Placeholder for embedded members page
+- **Invitations** - Placeholder for embedded invitations page
+- **Danger Zone** - Delete organization (owner only)
+
+## Organization Management Props
+
+### OrganizationMembersPage Props
+
+| Prop | Type | Description |
+|------|------|-------------|
+| `orgSlug` | `string` | Organization slug (required) |
+| `currentUserId` | `string` | Current user's principal ID |
+| `currentUserRole` | `MemberRole` | User's role: `owner`, `admin`, or `member` |
+| `apiBaseUrl` | `string` | API base URL (default: `/api`) |
+| `onMemberUpdate` | `() => void` | Callback when member is updated |
+| `onOwnershipTransferred` | `() => void` | Callback when ownership transfers |
+
+### OrganizationInvitationsPage Props
+
+| Prop | Type | Description |
+|------|------|-------------|
+| `orgSlug` | `string` | Organization slug (required) |
+| `currentUserRole` | `MemberRole` | User's role: `owner`, `admin`, or `member` |
+| `apiBaseUrl` | `string` | API base URL (default: `/api`) |
+| `onInvitationCreated` | `() => void` | Callback when invitation is created |
+| `onInvitationRevoked` | `() => void` | Callback when invitation is revoked |
+
+### OrganizationSettingsPage Props
+
+| Prop | Type | Description |
+|------|------|-------------|
+| `orgSlug` | `string` | Organization slug (required) |
+| `activeTab` | `OrgSettingsTab` | Active tab: `general`, `members`, `invitations`, `danger` |
+| `tabs` | `OrgSettingsTab[]` | Available tabs (default: all) |
+| `currentUserId` | `string` | Current user's principal ID |
+| `currentUserRole` | `MemberRole` | User's role: `owner`, `admin`, or `member` |
+| `apiBaseUrl` | `string` | API base URL (default: `/api`) |
+| `onTabChange` | `(tab: OrgSettingsTab) => void` | Tab change callback |
+| `onNavigate` | `(href: string) => void` | Navigation callback |
+
+## Types
+
+### MemberRole
+
+```typescript
+type MemberRole = 'owner' | 'admin' | 'member';
+```
+
+### OrgSettingsTab
+
+```typescript
+type OrgSettingsTab = 'general' | 'members' | 'invitations' | 'danger';
+```
+
+### OrgMember
+
+```typescript
+interface OrgMember {
+  id: string;
+  principal_id: string;
+  organization_id: string;
+  role: MemberRole;
+  permissions: string[];
+  active: boolean;
+  created_at: string;
+  updated_at: string;
+  user?: {
+    id: string;
+    email: string;
+    name: string;
+    avatar_url?: string;
+  };
+}
+```
+
+### OrgInvitation
+
+```typescript
+interface OrgInvitation {
+  id: string;
+  organization_id: string;
+  email?: string;
+  invite_code?: string;
+  role: MemberRole;
+  max_uses?: number;
+  use_count: number;
+  status: 'pending' | 'accepted' | 'expired' | 'revoked';
+  invited_by: string;
+  inviter_name?: string;
+  expires_at?: string;
+  created_at: string;
+}
+```
+
+## Permission Model
+
+Organization management follows this permission model:
+
+| Action | Owner | Admin | Member |
+|--------|-------|-------|--------|
+| View members | Yes | Yes | Yes |
+| Invite users | Yes | Yes | No |
+| Edit member roles | Yes | Yes* | No |
+| Remove members | Yes | Yes* | No |
+| Update org settings | Yes | Yes | No |
+| Transfer ownership | Yes | No | No |
+| Delete organization | Yes | No | No |
+
+*Admin cannot modify other admins or the owner
